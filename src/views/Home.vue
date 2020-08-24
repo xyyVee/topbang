@@ -159,9 +159,7 @@ export default {
       }
       .nav-down {
         width: 10px;
-        height: 6px;
         margin-left: 10px;
-        margin-bottom: 3px;
       }
     }
   }
