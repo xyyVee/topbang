@@ -1,6 +1,6 @@
 <template>
     <div class="footer">
-        <div class="main">
+        <div class="foot-main">
             <img class="line" src="../assets/pics/footer-line.png" />
             <div class="content">
                 <div class="item">
@@ -51,15 +51,15 @@
     background: #ffffff;
     z-index: 2;
     padding-bottom: 43px;
-    .main {
-        width: 1100px;
+    .foot-main {
+        width: 1200px;
         margin: 0 auto;
+        padding-top: 58px;
         .line {
             display: block;
             width: 336px;
             height: 40px;
             margin: 0 auto;
-            margin-top: 58px;
             margin-bottom: 55px;
         }
     }

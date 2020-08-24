@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <Header />
     <div class="banner">
       <img src="../assets/pics/home-banner1.png">
       <img class="slogan" src="../assets/pics/slogan.png">
@@ -59,11 +60,14 @@
         </div>
       </div>
     </div>
+    <Footer />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import VideoItem from './components/VideoItem'
 // If you use Swiper 6.0.0 or higher
@@ -71,6 +75,8 @@ import 'swiper/swiper-bundle.css'
 export default {
   name: 'Home',
   components: {
+    Header,
+    Footer,
     Swiper,
     SwiperSlide,
     VideoItem

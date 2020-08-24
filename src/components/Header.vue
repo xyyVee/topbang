@@ -13,7 +13,7 @@
                 <span class="item arrow item-2">
                     <img class="icon-2" src="../assets/icons/user.png"/>
                     <div class="login-menu">
-                        <div class="login">登陆</div>
+                        <router-link class="login" to="/login">登陆</router-link >
                         <div class="register">注册</div>
                     </div>
                 </span>
@@ -177,7 +177,7 @@
     right: -8px;
     width: 60px;
     border: 1px solid #ffffff;
-    font-size: 14px;
+    font-size: 16px;
     color: #ffffff;
     text-align: center;
     letter-spacing: 4px;
@@ -189,6 +189,8 @@
         padding-top: 2px;
         padding-bottom: 2px;
         cursor: pointer;
+        color: #ffffff;
+        text-decoration: none;
     }
 }
 </style>
