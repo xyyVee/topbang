@@ -52,7 +52,7 @@
     z-index: 2;
     .header {
         position: relative;
-        width: 1100px;
+        width: 1200px;
         height: 90px;
         margin: 0 auto;
     }
