@@ -24,12 +24,31 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
-    path: '/seller',
-    component: () => import('../views/MemberCenter/Seller.vue')
-  },
-  {
-    path: '/buyer',
-    component: () => import('../views/MemberCenter/Buyer.vue')
+    path: '/MemberCenter',
+    component: () => import('@/views/memberCenter/index.vue'),
+    redirect: '/MemberCenter/home',
+    children: [
+      {
+        path: 'home',
+        name: '主页',
+        component: () => import('@/views/memberCenter/home.vue')
+      },
+      {
+        path: 'information',
+        name: '个人信息',
+        component: () => import('@/views/memberCenter/information.vue')
+      },
+      {
+        path: 'security',
+        name: '账户安全',
+        component: () => import('@/views/memberCenter/security.vue')
+      },
+      {
+        path: 'tryout',
+        name: '我的试用',
+        component: () => import('@/views/memberCenter/tryout.vue')
+      }
+    ]
   }
 ]
 
