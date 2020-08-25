@@ -194,6 +194,7 @@
       </div>
     </div>
     <Footer />
+    <Nav />
   </div>
 </template>
 
@@ -201,6 +202,7 @@
 // @ is an alias to /src
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import Nav from '@/components/Nav'
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import VideoItemHome from './components/VideoItemHome'
 import LiveItemHome from './components/LiveItemHome'
@@ -214,7 +216,8 @@ export default {
     Swiper,
     SwiperSlide,
     VideoItemHome,
-    LiveItemHome
+    LiveItemHome,
+    Nav
   },
   data() {
     return {
