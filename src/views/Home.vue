@@ -2,45 +2,34 @@
   <div class="home">
     <Header />
     <div class="banner">
-      <img src="../assets/pics/home-banner1.png">
-      <img class="slogan" src="../assets/pics/slogan.png">
-      <div class="search">
-        <div class="search-input">
-          <input :placeholder="words[0]">
-          <div class="button">搜索</div>
+      <div class="menu">
+        <div class="list">
+          <div class="industry">
+            行业
+          </div>
+          <div v-for="(m, index) in menu" :key="index" class="other">{{ m }}</div>
         </div>
-        <div class="hot-words">
-          热门搜索 ：<span v-for="(word, index) in words" :key="index" class="word">{{ word }}</span>
+
+        <div class="center">
+          <swiper class="swiper" ref="mySwiper" :options="swiperOptions">
+            <swiper-slide class="slide"><img src="../assets/pics/scroll-banner.png"></swiper-slide>
+            <swiper-slide class="slide"><img src="../assets/pics/scroll-banner.png"></swiper-slide>
+            <swiper-slide class="slide"><img src="../assets/pics/scroll-banner.png"></swiper-slide>
+            <div slot="pagination" class="swiper-pagination" />
+          </swiper>
         </div>
-      </div>
-    </div>
-    <div class="menu">
-      <div class="list">
-        <div class="industry">
-          <svg-icon class="nav-icon" icon-class="list" />
-          <span>行业</span>
-          <svg-icon class="nav-down" icon-class="arrow-down" />
-        </div>
-        <div v-for="(m, index) in menu" :key="index" class="other">{{ m }}</div>
-      </div>
-    </div>
-    <div class="main">
-      <swiper class="swiper" ref="mySwiper" :options="swiperOptions">
-        <swiper-slide class="slide"><img src="../assets/pics/scroll-banner.png"></swiper-slide>
-        <swiper-slide class="slide"><img src="../assets/pics/scroll-banner.png"></swiper-slide>
-        <swiper-slide class="slide"><img src="../assets/pics/scroll-banner.png"></swiper-slide>
-        <div slot="pagination" class="swiper-pagination" />
-      </swiper>
-      <div class="recommend">
-        <div class="title">为你精选</div>
-        <div class="scroll">
-          <p v-for="(item, index) in news" :key="index">
-            <img class="video" src="../assets/icons/icon_video.png" />
-            {{ item }}
-          </p>
+
+        <div class="recommend">
+          <div class="title">为你精选</div>
+          <div class="scroll">
+            <p v-for="(item, index) in news" :key="index">
+              {{ item }}
+            </p>
+          </div>
         </div>
       </div>
     </div>
+
     <div class="intro">
       <div class="head-title">
           <img class="icon" src="../assets/pics/pic8.png" />
@@ -71,7 +60,7 @@ import Footer from '@/components/Footer'
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import VideoItem from './components/VideoItem'
 // If you use Swiper 6.0.0 or higher
-import 'swiper/swiper-bundle.css'
+import 'swiper/css/swiper.min.css'
 export default {
   name: 'Home',
   components: {
@@ -120,7 +109,9 @@ export default {
       swiperOptions: {
         pagination: {
           el: '.swiper-pagination'
-        }
+        },
+        autoplay: true,
+        loop: true
       }
     }
   },
@@ -130,28 +121,45 @@ export default {
     }
   },
   mounted() {
-    console.log('Current Swiper instance object', this.swiper)
-    this.swiper.slideTo(3, 1000, false)
+    // console.log('Current Swiper instance object', this.swiper)
+    // this.swiper.slideTo(3, 1000, false)
+    this.swiper.init()
   }
 }
 </script>
 <style lang="scss">
+.swiper-pagination-bullet {
+  background: #fff;
+  opacity: 1;
+}
+.swiper-pagination-bullet-active {
+  width: 40px;
+  height: 8px;
+  border-radius: 3px;
+}
 .home {
   position: relative;
   background: #F2F2F2;
   .banner {
-    width: 100%;
-    img {
-      width: 100%;
-    }
-    .slogan {
-      position: absolute;
-      width: 260px;
-      left: 50%;
-      top: 166px;
-      z-index: 2;
-      transform: translateX(-50%);
-    }
+    width: 100vw;
+    height: 1139px;
+    overflow: hidden;
+    background: url(./../assets/pics/banner2.jpg) no-repeat;
+    background-position-x: center;
+    background-position-y: top;
+    background-size: 1920px;
+    // width: 100%;
+    // img {
+    //   width: 100%;
+    // }
+    // .slogan {
+    //   position: absolute;
+    //   width: 260px;
+    //   left: 50%;
+    //   top: 166px;
+    //   z-index: 2;
+    //   transform: translateX(-50%);
+    // }
   }
   .search {
     position: absolute;
@@ -203,68 +211,59 @@ export default {
     }
   }
   .menu {
-    width: 100%;
-    height: 60px;
+    display: flex;
+    justify-content: flex-start;
+    width: 1200px;
+    height: 348px;
     background: #ffffff;
+    margin: 0 auto;
+    margin-top: 137px;
     .list {
-      width: 1200px;
-      height: 100%;
-      margin: 0 auto;
+      width: 161px;
+      height: 348px;
       font-size: 18px;
-      color: #333333;
+      color: #9F9F9F;
+      background: #F7F7F7;
+      margin-left: 13px;
       .industry {
-        display: inline-block;
-        position: relative;
-        width: 138px;
-        height: 100%;
-        line-height: 60px;
-        padding-left: 20px;
+        width: 120px;
+        height: 35px;
+        line-height: 35px;
+        padding-left: 35px;
+        background: url(../assets/pics/pic9.png) no-repeat;
+        background-size: 120px;
+        font-size: 20px;
+        color: #ffffff;
         cursor: pointer;
-        &:hover {
-          color: #c34840;
-        }
-        &:after {
-          position: absolute;
-          content: '';
-          width: 1px;
-          height: 20px;
-          background: #cccccc;
-          top: 20px;
-          right: 0;
-        }
+        margin: 0 auto;
+        margin-bottom: 15px;
       }
       .other {
-        display: inline-block;
-        height: 100%;
-        line-height: 60px;
-        margin-left: 50px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        background: #F7F7F7;
+        border-bottom: 1px solid #E0E0E0;
         cursor: pointer;
         &:hover {
-          color: #C34840;
+          background: #EDEDED;
         }
-      }
-      .nav-icon {
-        width: 24px;
-        height: 15px;
-        margin-right: 9px;
-      }
-      .nav-down {
-        width: 10px;
-        margin-left: 10px;
+        &:last-child {
+          line-height: 50px;
+          border-bottom: none;
+        }
       }
     }
   }
-  .main {
-    display: flex;
-    width: 1200px;
-    margin: 0 auto;
-    margin-top: 21px;
-    font-size: 0;
-    justify-content: space-between;
+  .center {
+    width: 700px;
+    height: 335px;
+    margin-top: 13px;
+    margin-left: 21px;
     .swiper {
       display: inline-block;
-      width: 830px;
-      height: 466px;
+      width: 100%;
+      height: 335px;
     }
     .slide {
       width: 100%;
@@ -275,67 +274,77 @@ export default {
         object-fit: cover;
       }
     }
-    .recommend {
-      display: inline-block;
-      width: 370px;
-      height: 466px;
-      background: #ffffff;
-      .title {
-        width: 330px;
-        height: 50px;
-        line-height: 50px;
-        margin-top: 20px;
-        margin-left: auto;
-        margin-right: auto;
-        color: #ffffff;
-        font-weight: 500;
-        font-size: 24px;
-        text-align: center;
-        background: url(../assets/pics/pic1.png) #e0665e no-repeat;
-        background-position: 50% 50%;
+  }
+}
+.recommend {
+  position: relative;
+  width: 305px;
+  height: 100%;
+  .title {
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 3px;
+    color: #cc141d;
+    &:before {
+      position: absolute;
+      top: 0;
+      content: '';
+      width: 96px;
+      height: 2px;
+      background: #cc141d;
+    }
+  }
+  .scroll {
+    width: 260px;
+    height: 250px;
+    overflow-y: auto;
+    font-size: 14px;
+    color: #333333;
+    margin-left: auto;
+    margin-right: auto;
+    p {
+      margin-top: 24px;
+      margin-bottom: 24px;
+      line-height: 1;
+      cursor: pointer;
+      &:before {
+        display: inline-block;
+        content: '';
+        width: 2px;
+        height: 2px;
+        border-radius: 50%;
+        background: #474747;
+        vertical-align: middle;
+        margin-right: 5px;
       }
-      .scroll {
-        width: 326px;
-        height: 360px;
-        overflow-y: auto;
-        font-size: 16px;
-        color: #333333;
-        margin-top: 22px;
-        margin-left: auto;
-        margin-right: auto;
-        p {
-          margin-top: 24px;
-          margin-bottom: 24px;
-          line-height: 1;
-          &:last-child {
-            margin-bottom: 0;
-          }
-          &:first-child {
-            margin-top: 0;
-          }
-        }
-        .video {
-          width: 14px;
-          height: 14px;
-          vertical-align: middle;
-          margin-right: 10px;
-        }
-        &::-webkit-scrollbar-track
-        {
-          background-color: #ffffff;
-        }
-
-        &::-webkit-scrollbar
-        {
-          width: 4px;
-          background-color: #cccccc;;
-        }
-
-        &::-webkit-scrollbar-thumb
-        {
-          background-color: #cccccc;;
-        }
+      &:last-child {
+        margin-bottom: 0;
       }
+      &:first-child {
+        margin-top: 0;
+      }
+      &:hover {
+        color: #2693FF;
+        text-decoration: underline;
+      }
+    }
+    &::-webkit-scrollbar-track
+    {
+      background-color: #ffffff;
+    }
+
+    &::-webkit-scrollbar
+    {
+      width: 2px;
+      background-color: #cccccc;;
+    }
+
+    &::-webkit-scrollbar-thumb
+    {
+      background-color: #cccccc;;
     }
   }
 }
