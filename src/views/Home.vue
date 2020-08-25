@@ -2,65 +2,199 @@
   <div class="home">
     <Header />
     <div class="banner">
-      <img src="../assets/pics/home-banner1.png">
-      <img class="slogan" src="../assets/pics/slogan.png">
-      <div class="search">
-        <div class="search-input">
-          <input :placeholder="words[0]">
-          <div class="button">搜索</div>
-        </div>
-        <div class="hot-words">
-          热门搜索 ：<span v-for="(word, index) in words" :key="index" class="word">{{ word }}</span>
-        </div>
-      </div>
-    </div>
-    <div class="menu">
-      <div class="list">
-        <div class="industry">
-          <svg-icon class="nav-icon" icon-class="list" />
-          <span>行业</span>
-          <svg-icon class="nav-down" icon-class="arrow-down" />
-        </div>
-        <div v-for="(m, index) in menu" :key="index" class="other">{{ m }}</div>
-      </div>
-    </div>
-    <div class="main">
-      <swiper class="swiper" ref="mySwiper" :options="swiperOptions">
-        <swiper-slide class="slide"><img src="../assets/pics/scroll-banner.png"></swiper-slide>
-        <swiper-slide class="slide"><img src="../assets/pics/scroll-banner.png"></swiper-slide>
-        <swiper-slide class="slide"><img src="../assets/pics/scroll-banner.png"></swiper-slide>
-        <div slot="pagination" class="swiper-pagination" />
-      </swiper>
-      <div class="recommend">
-        <div class="title">为你精选</div>
-        <div class="scroll">
-          <p v-for="(item, index) in news" :key="index">
-            <img class="video" src="../assets/icons/icon_video.png" />
-            {{ item }}
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="intro">
-      <div class="head-title">
-          <img class="icon" src="../assets/pics/pic8.png" />
-          <div class="name">人工智能 (AI)产品</div>
-          <div class="more">
-            更多
-            <svg-icon class="nav-right" icon-class="arrow-right" />
+      <div class="menu">
+        <div class="list">
+          <div class="industry">
+            行业
           </div>
-      </div>
-      <div class="list-content">
-        <div class="left">
-          <img class="img1" src="../assets/pics/sample1.jpg" />
-          <img class="img2" src="../assets/pics/sample1.jpg" />
+          <div v-for="(m, index) in menu" :key="index" class="other">{{ m }}</div>
         </div>
-        <div class="right">
-          <VideoItem v-for="item in contentData" :key="item.id" class="right-item" :content="item" />
+
+        <div class="center">
+          <swiper class="swiper" ref="mySwiper" :options="swiperOptions">
+            <swiper-slide class="slide"><img src="../assets/pics/scroll-banner.png"></swiper-slide>
+            <swiper-slide class="slide"><img src="../assets/pics/scroll-banner.png"></swiper-slide>
+            <swiper-slide class="slide"><img src="../assets/pics/scroll-banner.png"></swiper-slide>
+            <div slot="pagination" class="swiper-pagination" />
+          </swiper>
+        </div>
+
+        <div class="recommend">
+          <div class="title">为你精选</div>
+          <div class="scroll">
+            <p v-for="(item, index) in news" :key="index">
+              {{ item }}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="intro">
+        <div class="head-title">
+            <img class="icon" src="../assets/icons/home-icon1.png" />
+            <div class="name">人工智能 (AI) 产品</div>
+        </div>
+        <div class="desc">广泛应用于工业制造、城市交通、医疗健康、广泛应用于工业制造、城市交通、医疗健康、</div>
+        <div class="intro-bg">
+          <div class="list-content">
+            <div class="left">
+              <div class="img1">
+                <img class="icon" src="../assets/pics/pic5.png" />
+                <img class="pic" src="../assets/pics/sample1.jpg" />
+                <div class="txt">因知而智 工业全息洞察</div>
+              </div>
+              <div class="img2">
+                <img class="icon" src="../assets/pics/pic4.png" />
+                <img class="pic" src="../assets/pics/sample1.jpg" />
+                <div class="txt">因知而智 工业全息洞察</div>
+              </div>
+            </div>
+            <div class="right">
+              <VideoItemHome v-for="item in contentData" :key="item.id" class="right-item" :content="item" />
+            </div>
+          </div>
+          <div class="more">MORE</div>
+        </div>
+      </div>
+
+      <div class="intro">
+        <div class="head-title">
+            <img class="icon" src="../assets/icons/home-icon2.png" />
+            <div class="name">物联网产品</div>
+        </div>
+        <div class="desc">广泛应用于工业制造、城市交通、医疗健康、广泛应用于工业制造、城市交通、医疗健康、</div>
+        <div class="intro-bg">
+          <div class="list-content">
+            <div class="left">
+              <div class="img1">
+                <img class="icon" src="../assets/pics/pic5.png" />
+                <img class="pic" src="../assets/pics/sample1.jpg" />
+                <div class="txt">因知而智 工业全息洞察</div>
+              </div>
+              <div class="img2">
+                <img class="icon" src="../assets/pics/pic4.png" />
+                <img class="pic" src="../assets/pics/sample1.jpg" />
+                <div class="txt">因知而智 工业全息洞察</div>
+              </div>
+            </div>
+            <div class="right">
+              <VideoItemHome v-for="item in contentData" :key="item.id" class="right-item" :content="item" />
+            </div>
+          </div>
+          <div class="more">MORE</div>
+        </div>
+      </div>
+
+      <div class="intro">
+        <div class="head-title">
+            <img class="icon" src="../assets/icons/home-icon3.png" />
+            <div class="name">基因工程产品</div>
+        </div>
+        <div class="desc">广泛应用于工业制造、城市交通、医疗健康、广泛应用于工业制造、城市交通、医疗健康、</div>
+        <div class="intro-bg">
+          <div class="list-content">
+            <div class="left">
+              <div class="img1">
+                <img class="icon" src="../assets/pics/pic5.png" />
+                <img class="pic" src="../assets/pics/sample1.jpg" />
+                <div class="txt">因知而智 工业全息洞察</div>
+              </div>
+              <div class="img2">
+                <img class="icon" src="../assets/pics/pic4.png" />
+                <img class="pic" src="../assets/pics/sample1.jpg" />
+                <div class="txt">因知而智 工业全息洞察</div>
+              </div>
+            </div>
+            <div class="right">
+              <VideoItemHome v-for="item in contentData" :key="item.id" class="right-item" :content="item" />
+            </div>
+          </div>
+          <div class="more">MORE</div>
+        </div>
+      </div>
+
+      <div class="new-product">
+        <div class="np-list">
+          <div class="n-title">新品展示</div>
+          <div class="new-list">
+            <VideoItemHome v-for="item in contentData" :key="item.id" class="right-item" :content="item" />
+          </div>
+        </div>
+        <div class="hot-list">
+          <div class="n-title">热销产品 TOP 5</div>
+          <div class="h-list">
+            <div v-for="(item, index) in contentData" :key="item.id" class="h-item" :class="{'not-active': +nowExpland !== +index}"  @mouseenter="setActive(index)" @mouseleave="setActive(0)">
+              <span class="no" :class="{'red': index <3 }">{{index+1}}</span>
+              <template v-if="+nowExpland === +index">
+                <div class="pre-img">
+                  <img src="../assets/pics/sample2.jpg" />
+                  <div class="play">
+                    <svg-icon class="icon" icon-class="play" />
+                  </div>
+                </div>
+                <div class="t-star">
+                  <div class="t-name">{{item.title}}</div>
+                  <span class="item">
+                    <svg-icon class="like" icon-class="star" />
+                    4290
+                  </span>
+                </div>
+              </template>
+              <template v-else>
+                <div class="t-name">{{item.title}}</div>
+              </template>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ceo助力 -->
+      <div class="intro">
+        <div class="head-title">
+            <img class="icon" src="../assets/icons/home-icon4.png" />
+            <div class="name">CEO 助力</div>
+        </div>
+        <div class="live-list">
+          <LiveItemHome v-for="item in contentData.slice(0,5)" :key="item.id" :content="item" />
+        </div>
+      </div>
+
+      <div class="finally">
+        <div class="f-item">
+          <div class="f-left"></div>
+          <div class="f-right">
+            <div class="f-content">两万家智能家居服务企业，提供定制合作，这些优秀的供应商将为您竭诚服务</div>
+            <div class="f-icons">
+              <div class="icon">
+                <img src="../assets/icons/home-icon5.png" />
+                <span>行业标杆</span>
+              </div>
+              <div class="icon icon2">
+                <img src="../assets/icons/home-icon6.png" />
+                <span>企业认证供应商</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="f-item">
+          <div class="f-left"></div>
+          <div class="f-right">
+            <div class="f-content">两万家智能家居服务企业，提供定制合作，这些优秀的供应商将为您竭诚服务</div>
+            <div class="f-icons">
+              <div class="icon">
+                <img src="../assets/icons/home-icon5.png" />
+                <span>行业标杆</span>
+              </div>
+              <div class="icon icon2">
+                <img src="../assets/icons/home-icon6.png" />
+                <span>企业认证供应商</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <Footer />
+    <Nav />
   </div>
 </template>
 
@@ -68,10 +202,12 @@
 // @ is an alias to /src
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import Nav from '@/components/Nav'
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
-import VideoItem from './components/VideoItem'
+import VideoItemHome from './components/VideoItemHome'
+import LiveItemHome from './components/LiveItemHome'
 // If you use Swiper 6.0.0 or higher
-import 'swiper/swiper-bundle.css'
+import 'swiper/css/swiper.min.css'
 export default {
   name: 'Home',
   components: {
@@ -79,7 +215,9 @@ export default {
     Footer,
     Swiper,
     SwiperSlide,
-    VideoItem
+    VideoItemHome,
+    LiveItemHome,
+    Nav
   },
   data() {
     return {
@@ -120,8 +258,11 @@ export default {
       swiperOptions: {
         pagination: {
           el: '.swiper-pagination'
-        }
-      }
+        },
+        autoplay: true,
+        loop: true
+      },
+      nowExpland: 0
     }
   },
   computed: {
@@ -130,28 +271,38 @@ export default {
     }
   },
   mounted() {
-    console.log('Current Swiper instance object', this.swiper)
-    this.swiper.slideTo(3, 1000, false)
+    // console.log('Current Swiper instance object', this.swiper)
+    // this.swiper.slideTo(3, 1000, false)
+    this.swiper.init()
+  },
+  methods: {
+    setActive(index) {
+      this.nowExpland = index
+    }
   }
 }
 </script>
 <style lang="scss">
+.swiper-pagination-bullet {
+  background: #fff;
+  opacity: 1;
+}
+.swiper-pagination-bullet-active {
+  width: 40px;
+  height: 8px;
+  border-radius: 3px;
+}
 .home {
   position: relative;
-  background: #F2F2F2;
+  // background: #F2F2F2;
+  background: #ffffff;
   .banner {
-    width: 100%;
-    img {
-      width: 100%;
-    }
-    .slogan {
-      position: absolute;
-      width: 260px;
-      left: 50%;
-      top: 166px;
-      z-index: 2;
-      transform: translateX(-50%);
-    }
+    width: 100vw;
+    overflow: hidden;
+    background: url(./../assets/pics/banner2.jpg) no-repeat;
+    background-position-x: center;
+    background-position-y: top;
+    background-size: 1920px;
   }
   .search {
     position: absolute;
@@ -203,68 +354,59 @@ export default {
     }
   }
   .menu {
-    width: 100%;
-    height: 60px;
+    display: flex;
+    justify-content: flex-start;
+    width: 1200px;
+    height: 348px;
     background: #ffffff;
+    margin: 0 auto;
+    margin-top: 137px;
     .list {
-      width: 1200px;
-      height: 100%;
-      margin: 0 auto;
+      width: 161px;
+      height: 348px;
       font-size: 18px;
-      color: #333333;
+      color: #9F9F9F;
+      background: #F7F7F7;
+      margin-left: 13px;
       .industry {
-        display: inline-block;
-        position: relative;
-        width: 138px;
-        height: 100%;
-        line-height: 60px;
-        padding-left: 20px;
+        width: 120px;
+        height: 35px;
+        line-height: 35px;
+        padding-left: 35px;
+        background: url(../assets/pics/pic9.png) no-repeat;
+        background-size: 120px;
+        font-size: 20px;
+        color: #ffffff;
         cursor: pointer;
-        &:hover {
-          color: #c34840;
-        }
-        &:after {
-          position: absolute;
-          content: '';
-          width: 1px;
-          height: 20px;
-          background: #cccccc;
-          top: 20px;
-          right: 0;
-        }
+        margin: 0 auto;
+        margin-bottom: 15px;
       }
       .other {
-        display: inline-block;
-        height: 100%;
-        line-height: 60px;
-        margin-left: 50px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        background: #F7F7F7;
+        border-bottom: 1px solid #E0E0E0;
         cursor: pointer;
         &:hover {
-          color: #C34840;
+          background: #EDEDED;
         }
-      }
-      .nav-icon {
-        width: 24px;
-        height: 15px;
-        margin-right: 9px;
-      }
-      .nav-down {
-        width: 10px;
-        margin-left: 10px;
+        &:last-child {
+          line-height: 50px;
+          border-bottom: none;
+        }
       }
     }
   }
-  .main {
-    display: flex;
-    width: 1200px;
-    margin: 0 auto;
-    margin-top: 21px;
-    font-size: 0;
-    justify-content: space-between;
+  .center {
+    width: 700px;
+    height: 335px;
+    margin-top: 13px;
+    margin-left: 21px;
     .swiper {
       display: inline-block;
-      width: 830px;
-      height: 466px;
+      width: 100%;
+      height: 335px;
     }
     .slide {
       width: 100%;
@@ -275,94 +417,99 @@ export default {
         object-fit: cover;
       }
     }
-    .recommend {
-      display: inline-block;
-      width: 370px;
-      height: 466px;
-      background: #ffffff;
-      .title {
-        width: 330px;
-        height: 50px;
-        line-height: 50px;
-        margin-top: 20px;
-        margin-left: auto;
-        margin-right: auto;
-        color: #ffffff;
-        font-weight: 500;
-        font-size: 24px;
-        text-align: center;
-        background: url(../assets/pics/pic1.png) #e0665e no-repeat;
-        background-position: 50% 50%;
+  }
+}
+.recommend {
+  position: relative;
+  width: 305px;
+  height: 100%;
+  .title {
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 3px;
+    color: #cc141d;
+    &:before {
+      position: absolute;
+      top: 0;
+      content: '';
+      width: 96px;
+      height: 2px;
+      background: #cc141d;
+    }
+  }
+  .scroll {
+    width: 260px;
+    height: 250px;
+    overflow-y: auto;
+    font-size: 14px;
+    color: #333333;
+    margin-left: auto;
+    margin-right: auto;
+    p {
+      margin-top: 24px;
+      margin-bottom: 24px;
+      line-height: 1;
+      cursor: pointer;
+      &:before {
+        display: inline-block;
+        content: '';
+        width: 2px;
+        height: 2px;
+        border-radius: 50%;
+        background: #474747;
+        vertical-align: middle;
+        margin-right: 5px;
       }
-      .scroll {
-        width: 326px;
-        height: 360px;
-        overflow-y: auto;
-        font-size: 16px;
-        color: #333333;
-        margin-top: 22px;
-        margin-left: auto;
-        margin-right: auto;
-        p {
-          margin-top: 24px;
-          margin-bottom: 24px;
-          line-height: 1;
-          &:last-child {
-            margin-bottom: 0;
-          }
-          &:first-child {
-            margin-top: 0;
-          }
-        }
-        .video {
-          width: 14px;
-          height: 14px;
-          vertical-align: middle;
-          margin-right: 10px;
-        }
-        &::-webkit-scrollbar-track
-        {
-          background-color: #ffffff;
-        }
-
-        &::-webkit-scrollbar
-        {
-          width: 4px;
-          background-color: #cccccc;;
-        }
-
-        &::-webkit-scrollbar-thumb
-        {
-          background-color: #cccccc;;
-        }
+      &:last-child {
+        margin-bottom: 0;
       }
+      &:first-child {
+        margin-top: 0;
+      }
+      &:hover {
+        color: #2693FF;
+        text-decoration: underline;
+      }
+    }
+    &::-webkit-scrollbar-track
+    {
+      background-color: #ffffff;
+    }
+
+    &::-webkit-scrollbar
+    {
+      width: 2px;
+      background-color: #cccccc;;
+    }
+
+    &::-webkit-scrollbar-thumb
+    {
+      background-color: #cccccc;;
     }
   }
 }
 .intro {
+  position: relative;
   width: 1200px;
-  margin: 50px auto;
+  margin: 96px auto;
+}
+.intro-bg {
+  position: relative;
+  width: 1210px;
+  height: 410px;
+  background: #f7f7f7;
+  margin-top: 66px;
 }
 .head-title {
+  text-align: center;
   .icon {
     width: 50px;
     height: 50px;
     margin-right: 21px;
     vertical-align: middle;
-  }
-  .more {
-    float: right;
-    width: 66px;
-    height: 22px;
-    color: #999999;
-    font-size: 14px;
-    font-weight: bold;
-    line-height: 22px;
-    border: 1px solid #cccccc;
-    border-radius: 2px;
-    padding-left: 12px;
-    margin-top: 14px;
-    cursor: pointer;
   }
   .name {
     display: inline-block;
@@ -372,33 +519,256 @@ export default {
     vertical-align: middle;
   }
 }
+.desc {
+  font-size: 14px;
+  font-weight: 400;
+  color: #a4a4a4;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-top: 28px;
+}
 .list-content {
+  position: absolute;
+  width: 1200px;
+  height: 370px;
+  top: -13px;
+  left: 13px;
   display: flex;
-  margin-top: 20px;
-  padding: 20px;
-  background: #ffffff;
   justify-content: space-between;
   .left {
     display: flex;
-    width: 470px;
+    width: 505px;
     justify-content: space-between;
+    .img1, .img2 {
+      display: inline-block;
+      .icon {
+        position: absolute;
+        top: 43px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .pic {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .txt {
+        position: absolute;
+        width: 100%;
+        top: 103px;
+        text-align: center;
+        font-size: 14px;
+        color: #ffffff;
+      }
+      &:hover {
+        &:after {
+          position: absolute;
+          content: '';
+          width: 100%;
+          height: 5px;
+          background: #cc151d;
+          bottom: 0;
+          left: 0;
+        }
+      }
+    }
     .img1 {
-      width: 260px;
-      height: 256px;
+      position: relative;
+      width: 248px;
+      height: 370px;
     }
     .img2 {
-      width: 190px;
-      height: 256px;
+      position: relative;
+      width: 242px;
+      height: 370px;
+      margin-left: 15px;
     }
   }
   .right {
-    width: 670px;
+    width: 681px;
   }
   .right-item {
-    margin-right: 20px;
-    margin-bottom: 20px;
+    margin-right: 12px;
+    margin-bottom: 58px;
     &:nth-child(3n) {
       margin-right: 0;
+    }
+  }
+}
+.more {
+  position: absolute;
+  width: 52px;
+  height: 19px;
+  bottom: 13px;
+  right: 9px;
+  color: #ffffff;
+  font-size: 12px;
+  line-height: 19px;
+  background: #adadad;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.new-product {
+  width: 1200px;
+  margin: 73px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: top;
+  .n-title {
+    font-size: 22px;
+    color: #333333;
+    &:before {
+      display: inline-block;
+      content: '';
+      width: 4px;
+      height: 20px;
+      border-radius: 2px;
+      background: #CC151D;
+      vertical-align: middle;
+      margin-right: 15px;
+    }
+  }
+  .np-list {
+    width: 661px;
+    height: 488px;
+    .new-list {
+      margin-top: 32px;
+      .right-item {
+        margin-right: 9px;
+        margin-bottom: 57px;
+        &:nth-child(3n) {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+  .hot-list {
+    width: 453px;
+    height: 488px;
+    .h-list {
+      height: 369px;
+      overflow-y: auto;
+      margin-top: 32px;
+      .h-item {
+        display: flex;
+        justify-content: flex-start;
+        align-items: top;
+        padding: 10px 8px;
+        &:nth-child(odd) {
+          background: #F7F7F7;
+        }
+        &.not-active {
+          padding-top: 20px;
+          padding-bottom: 20px;
+        }
+      }
+      .no {
+        font-size: 14px;
+        font-weight: bold;
+        color: #111111;
+        margin-right: 19px;
+        &.red {
+          color: #cc151d;
+        }
+      }
+      .pre-img {
+        position: relative;;
+        width: 112px;
+        height: 82px;
+        img {
+          width: 112px;
+          height: 82px;
+          object-fit: cover;
+        }
+        .play {
+          position: absolute;
+          width: 35px;
+          height: 35px;
+          border-radius: 50%;
+          background: rgba(255,255,255,.4);
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          .icon {
+            position: absolute;
+            color: #ffffff;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+      }
+      .t-star {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        height: 53px;
+        margin-top: 15px;
+        margin-left: 19px;
+        .item {
+          font-size: 14px;
+          color: #CC151D;
+        }
+      }
+      .t-name {
+        color: #474747;
+        font-size: 14px;
+      }
+    }
+  }
+}
+.live-list {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 68px;
+}
+
+.finally {
+  display: flex;
+  width: 1200px;
+  margin: 0 auto;
+  justify-content: space-between;
+  .f-item {
+    display: flex;
+    justify-content: flex-start;
+    width: 583px;
+    height: 253px;
+    background: #f7f7f7;
+    padding: 14px 16px;
+    .f-left {
+      width: 207px;
+    }
+    .f-right {
+      padding-top: 36px;
+      padding-left: 29px;
+      .f-content {
+        width: 280px;
+        font-size: 18px;
+        color: #474747;
+        letter-spacing: 1px;
+        line-height: 22px;
+      }
+      .f-icons {
+        margin-top: 23px;
+      }
+      .icon {
+        display: inline-block;
+        width: 58px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 400;
+        color: #474747;
+        margin-left: 43px;
+        img {
+          display: block;
+          margin: 0 auto;
+        }
+      }
+      .icon2 {
+        width: 101px;
+      }
     }
   }
 }
