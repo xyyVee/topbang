@@ -4,7 +4,7 @@
     <NavSticky :sticky="60" />
     <div class="main-content">
       <div style="width: 1200px; margin: 0 auto;">
-        <el-breadcrumb separator="/">
+        <el-breadcrumb separator-class="el-icon-arrow-right">
           <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
           <el-breadcrumb-item><a href="/">所有行业</a></el-breadcrumb-item>
           <el-breadcrumb-item>热门行业</el-breadcrumb-item>

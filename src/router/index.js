@@ -29,6 +29,13 @@ const routes = [
     name: 'ProductMain',
     component: () => import('../views/product/main.vue')
   },
+  // 全行业
+  {
+    path: '/allIndustry',
+    name: 'AllIndustry',
+    component: () => import('../views/allIndustry.vue')
+  },
+  // 公司主页
   {
     path: '/about',
     name: 'About',
@@ -40,28 +47,28 @@ const routes = [
   // 会员中心
   {
     path: '/MemberCenter',
-    component: () => import('@/views/MemberCenter/index.vue'),
+    component: () => import('@/views/memberCenter/index.vue'),
     redirect: '/MemberCenter/home',
     children: [
       {
         path: 'home',
         name: '主页',
-        component: () => import('@/views/MemberCenter/home.vue')
+        component: () => import('@/views/memberCenter/home.vue')
       },
       {
         path: 'information',
         name: '个人信息',
-        component: () => import('@/views/MemberCenter/information.vue')
+        component: () => import('@/views/memberCenter/information.vue')
       },
       {
         path: 'security',
         name: '账户安全',
-        component: () => import('@/views/MemberCenter/security.vue')
+        component: () => import('@/views/memberCenter/security.vue')
       },
       {
         path: 'tryout',
         name: '我的试用',
-        component: () => import('@/views/MemberCenter/tryout.vue')
+        component: () => import('@/views/memberCenter/tryout.vue')
       }
     ]
   }

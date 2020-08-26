@@ -220,11 +220,12 @@ export default {
 <style lang="scss" scoped>
 .sticky {
   position: absolute;
-  top: 60px;
+  top: 50px;
   width: 100%;
   height: 60px;
   background: #ffffff;
   box-shadow: 2px 2px 5px #d9d9d9;
+  z-index: 3;
   .main {
     position: relative;
     width: 1200px;
