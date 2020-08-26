@@ -9,6 +9,8 @@ Vue.use(ElementUI)
 
 import './icons' // icon
 Vue.config.productionTip = false
+// import Sticky from 'vue-sticky-directive'
+// Vue.use(Sticky)
 
 new Vue({
   router,

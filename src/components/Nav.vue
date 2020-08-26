@@ -19,7 +19,7 @@
       <img class="nav-icon" src="../assets/nav/nav-icon3.png" />
       历史足迹
     </div>
-    <div class="nav-item">
+    <div class="nav-item last-item">
       <img class="nav-icon" src="../assets/nav/nav-icon2.png" />
       回到顶部
     </div>
@@ -54,7 +54,7 @@
       margin: 0 auto;
       margin-bottom: 10px;
     }
-    &:after {
+    &:not(.last-item):after {
       display: block;
       content: '';
       width: 40px;

@@ -29,6 +29,8 @@
                     <p>销售热线：400-666-888</p>
                     <p>客服热线：400-666-888</p>
                     <p>Email:topbang@qq.com</p>
+                    <img class="qrcode" src="../assets/pics/wechat.png" />
+                    <p class="scan-code">扫码关注公众号</p>
                 </div>
             </div>
             <div class="foot">
@@ -96,6 +98,14 @@
         }
         .concat {
             margin-left: 167px;
+            .qrcode {
+                margin-top: 31px;
+            }
+            .scan-code {
+                font-size: 12px;
+                color: #9f9f9f;
+                margin-top: 0;
+            }
         }
     }
     .foot {
