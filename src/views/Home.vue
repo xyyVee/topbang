@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <Header />
+    <NavSticky :sticky="430" :hide="true" />
     <div class="banner">
       <div class="menu">
         <div class="list">
@@ -160,7 +161,9 @@
 
       <div class="finally">
         <div class="f-item">
-          <div class="f-left"></div>
+          <div class="f-left">
+            <img src="../assets/pics/home-b1.png" />
+          </div>
           <div class="f-right">
             <div class="f-content">两万家智能家居服务企业，提供定制合作，这些优秀的供应商将为您竭诚服务</div>
             <div class="f-icons">
@@ -176,7 +179,9 @@
           </div>
         </div>
         <div class="f-item">
-          <div class="f-left"></div>
+          <div class="f-left">
+            <img src="../assets/pics/home-b2.png" />
+          </div>
           <div class="f-right">
             <div class="f-content">两万家智能家居服务企业，提供定制合作，这些优秀的供应商将为您竭诚服务</div>
             <div class="f-icons">
@@ -206,8 +211,9 @@ import Nav from '@/components/Nav'
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import VideoItemHome from './components/VideoItemHome'
 import LiveItemHome from './components/LiveItemHome'
-// If you use Swiper 6.0.0 or higher
+
 import 'swiper/css/swiper.min.css'
+import NavSticky from '@/components/NavSticky'
 export default {
   name: 'Home',
   components: {
@@ -217,6 +223,7 @@ export default {
     SwiperSlide,
     VideoItemHome,
     LiveItemHome,
+    NavSticky,
     Nav
   },
   data() {
@@ -273,7 +280,7 @@ export default {
   mounted() {
     // console.log('Current Swiper instance object', this.swiper)
     // this.swiper.slideTo(3, 1000, false)
-    this.swiper.init()
+    // this.swiper.init()
   },
   methods: {
     setActive(index) {
@@ -282,7 +289,7 @@ export default {
   }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .swiper-pagination-bullet {
   background: #fff;
   opacity: 1;
