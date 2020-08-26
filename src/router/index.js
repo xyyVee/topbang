@@ -41,6 +41,18 @@ const routes = [
     name: 'Industry',
     component: () => import('../views/industry/industry.vue')
   },
+  // 垂直行业
+  {
+    path: '/verticalIndustry',
+    name: 'VerticalIndustry',
+    component: () => import('../views/industry/verticalIndustry.vue')
+  },
+  // 行业目录
+  {
+    path: '/industryTable',
+    name: 'IndustryTable',
+    component: () => import('../views/industry/industryTable.vue')
+  },
   // 公司主页
   {
     path: '/about',

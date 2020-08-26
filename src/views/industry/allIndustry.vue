@@ -189,8 +189,13 @@ export default {
 
 <style lang="scss" scoped>
 .all-industry {
-  background: #F2F2F2;
   padding-top: 120px;
+  width: 100vw;
+  overflow: hidden;
+  background: url(../../assets/pics/banner2.jpg) no-repeat;
+  background-position-x: center;
+  background-position-y: top;
+  background-size: 1920px;
   .main {
     width: 1200px;
     margin-left: auto;
