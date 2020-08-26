@@ -2,51 +2,22 @@
   <div class="main">
     <el-card>
       <div class="title">
-        <svg-icon icon-class="arrow-down" />我的试用
+        <svg-icon icon-class="arrow-down" />我的评价
       </div>
       <!-- 筛选区域 -->
       <el-row class="header">
-        <el-col :span="14">
-
-          <el-tabs>
-            <el-tab-pane label="全部试用"></el-tab-pane>
-            <el-tab-pane label="申请中"></el-tab-pane>
-            <el-tab-pane>
-              <span slot="label">
-                待评价<sup class="badge">1</sup>
-              </span>
-            </el-tab-pane>
-            <el-tab-pane label="已评价"></el-tab-pane>
-          </el-tabs>
-        </el-col>
-        <el-col :span="8">
-
-          <el-input v-model="value1" class="input">
-            <el-button slot="append" icon="el-icon-search"></el-button>
-          </el-input>
-        </el-col>
-
-        <el-col :span="2">
-
-          <el-select v-model="value2" placeholder="筛选" class="select">
-            <el-option v-for="item in options" :key="item.value" :label="item.label"
-              :value="item.value">
-            </el-option>
-          </el-select>
-        </el-col>
-
+        <el-tabs>
+          <el-tab-pane>
+            <span slot="label">
+              待评价订单<sup class="badge">1</sup>
+            </span>
+          </el-tab-pane>
+          <el-tab-pane label="已评价"></el-tab-pane>
+        </el-tabs>
       </el-row>
       <div class="label">
-        <div class="col-1">
-          <el-select v-model="value2" placeholder="近三个月的试用" class="select">
-            <el-option v-for="item in options" :key="item.value" :label="item.label"
-              :value="item.value">
-            </el-option>
-          </el-select>
-          项目详情
-        </div>
+        <div class="col-1">项目详情</div>
         <div class="col-2">项目企业</div>
-        <div class="col-3">状态</div>
         <div class="col-4">操作</div>
       </div>
       <div class="list">
@@ -62,14 +33,8 @@
             </div>
             <div class="col-2">{{item.company}}<i class="el-icon-chat-dot-round"></i></div>
             <div class="col-3">
-              <div>{{statusMap[item.status]}}</div>
+              <el-button type="primary" size="mini" plain>评价</el-button>
               <div class="grey">项目详情</div>
-            </div>
-            <div class="col-4">
-              <el-button type="text" v-if="item.status===1">试用下载</el-button>
-              <el-button type="text" v-if="item.status===2">前往评价</el-button>
-              <el-button type="text" v-if="item.status===2">前往购买</el-button>
-              <el-button type="text" v-if="item.status===3">取消申请</el-button>
             </div>
           </div>
         </div>
@@ -117,29 +82,24 @@ export default {
     border-radius: 20px;
   }
 }
-.header {
-  .right {
-    .input {
-      float: right;
-      width: 200px;
-    }
-    .select {
-      float: right;
-      width: 80px;
-    }
-  }
-}
 .label {
   line-height: 40px;
   background-color: #f0f0f0;
   margin-bottom: 20px;
   display: flex;
   align-content: center;
+  .col-1 {
+    text-align: center;
+  }
 }
 .list {
   .cell {
     border: 1px solid #f0f0f0;
     margin-bottom: 20px;
+    .col-1 {
+      display: flex;
+      align-items: center;
+    }
   }
   .top {
     line-height: 40px;
@@ -168,18 +128,15 @@ export default {
     }
   }
 }
-
 .col-1 {
-  width: 35%;
-  display: flex;
-  align-items: center;
+  width: 45%;
   .select {
     width: 150px;
   }
 }
 .col-2 {
   text-align: center;
-  width: 30%;
+  width: 35%;
 }
 .col-3 {
   text-align: center;

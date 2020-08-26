@@ -21,119 +21,129 @@
         </div>
       </div>
     </el-card>
-    <!-- 我的试用 -->
-    <el-card class="card card-1">
-      <div slot="header" class="clearfix">
-        <span>我的试用</span>
-        <el-button style="float: right; padding: 3px 0" type="text">
-          全部试用
-          <svg-icon icon-class="arrow-right" />
-        </el-button>
-      </div>
-      <div class="icons">
-        <div class="item">
-          <img src="@/assets/icons/deal-4.png" alt="">
-          <div>申请中<el-button type="text">5</el-button>
+
+    <el-row class="row">
+      <el-col :span="16" class="col-1">
+
+        <!-- 我的试用 -->
+        <el-card class="card card-1">
+          <div slot="header" class="clearfix">
+            <span>我的试用</span>
+            <el-button style="float: right; padding: 3px 0" type="text">
+              全部试用
+              <svg-icon icon-class="arrow-right" />
+            </el-button>
           </div>
-        </div>
-        <div class="item">
-          <img src="@/assets/icons/deal-4.png" alt="">
-          <div>试用中<el-button type="text">5</el-button>
-          </div>
-        </div>
-        <div class="item">
-          <img src="@/assets/icons/deal-4.png" alt="">
-          <div>待评价<el-button type="text">5</el-button>
-          </div>
-        </div>
-        <div class="item">
-          <img src="@/assets/icons/deal-4.png" alt="">
-          <div>已评价<el-button type="text">5</el-button>
-          </div>
-        </div>
-      </div>
-      <div class="list">
-        <div class="cell" v-for="(item,index) in list" :key="index">
-          <div class="left">
-            <el-image class="img" :src="item.src" fit="cover"></el-image>
-            <div class="info">
-              <div>{{item.title}}</div>
-              <div class="time">{{item.time}}</div>
+          <div class="icons">
+            <div class="item">
+              <img src="@/assets/icons/deal-4.png" alt="">
+              <div>申请中<el-button type="text">5</el-button>
+              </div>
+            </div>
+            <div class="item">
+              <img src="@/assets/icons/deal-4.png" alt="">
+              <div>试用中<el-button type="text">5</el-button>
+              </div>
+            </div>
+            <div class="item">
+              <img src="@/assets/icons/deal-4.png" alt="">
+              <div>待评价<el-button type="text">5</el-button>
+              </div>
+            </div>
+            <div class="item">
+              <img src="@/assets/icons/deal-4.png" alt="">
+              <div>已评价<el-button type="text">5</el-button>
+              </div>
             </div>
           </div>
-          <div class="btn">
-            <el-button type="text">查看详情</el-button> |<el-button type="text">查看评价</el-button>
-          </div>
-        </div>
-      </div>
-    </el-card>
-    
-    <!-- 猜你喜欢 -->
-    <el-card class="card card-2">
-      <div slot="header" class="clearfix">
-        <span>猜你喜欢</span>
-        <el-button style="float: right; padding: 3px 0" type="text">
-          换一组<svg-icon icon-class="arrow-right" />
-        </el-button>
-      </div>
-      <div class="videos">
-        <el-card class="video-card" v-for="item in contentData" :key="item.id"
-          :body-style="{ padding: '0px' }">
-          <VideoItem :content="item" />
-          <div class="info">
-            <span>产品名称（机器人）
-              <svg-icon icon-class="arrow-right" /></span>
-            <div class="bottom">
-              <div>￥<span class="money">399</span></div>
-              <div>
-                <svg-icon icon-class="arrow-right" />
-                <svg-icon icon-class="arrow-right" />
+          <div class="list">
+            <div class="cell" v-for="(item,index) in list" :key="index">
+              <div class="left">
+                <el-image class="img" :src="item.src" fit="cover"></el-image>
+                <div class="info">
+                  <div>{{item.title}}</div>
+                  <div class="time">{{item.time}}</div>
+                </div>
+              </div>
+              <div class="btn">
+                <el-button type="text">查看详情</el-button> |<el-button type="text">查看评价</el-button>
               </div>
             </div>
           </div>
         </el-card>
-      </div>
-    </el-card>
-    <!-- 我的消息 -->
-    <el-card class="card card-3">
-      <div slot="header" class="clearfix">
-        <span>我的消息</span>
-        <el-button style="float: right; padding: 3px 0" type="text">
-          <svg-icon icon-class="arrow-right" />
-        </el-button>
-      </div>
-      <div class="msg" v-for="item in msgData" :key="item.id">
-        <svg-icon icon-class="arrow-right" />
-        <span>{{item.title}}
-          <svg-icon icon-class="arrow-right" /></span>
-      </div>
-    </el-card>
-    <!-- 我看过的 -->
-    <el-card class="card card-4">
-      <div slot="header" class="clearfix">
-        <span>我看过的</span>
-        <el-button style="float: right; padding: 3px 0" type="text">
-          <svg-icon icon-class="arrow-right" />
-        </el-button>
-      </div>
-      <div class="videos">
-        <el-card class="video-card" v-for="item in contentData" :key="item.id"
-          :body-style="{ padding: '0px' }">
-          <VideoItem :content="item" />
-          <div class="info">
-            <span>产品名称（机器人）
-              <svg-icon icon-class="arrow-right" /></span>
-            <div class="bottom">
-              <div>￥<span class="money">399</span></div>
-              <div>
-                <svg-icon icon-class="arrow-right" />
-                <svg-icon icon-class="arrow-right" />
+
+        <!-- 猜你喜欢 -->
+        <el-card class="card card-2">
+          <div slot="header" class="clearfix">
+            <span>猜你喜欢</span>
+            <el-button style="float: right; padding: 3px 0" type="text">
+              换一组
+              <svg-icon icon-class="arrow-right" />
+            </el-button>
+          </div>
+          <div class="videos">
+            <el-card class="video-card" v-for="item in contentData" :key="item.id"
+              :body-style="{ padding: '0px' }">
+              <VideoItem :content="item" />
+              <div class="info">
+                <span>产品名称（机器人）
+                  <svg-icon icon-class="arrow-right" /></span>
+                <div class="bottom">
+                  <div>￥<span class="money">399</span></div>
+                  <div>
+                    <svg-icon icon-class="arrow-right" />
+                    <svg-icon icon-class="arrow-right" />
+                  </div>
+                </div>
               </div>
-            </div>
+            </el-card>
           </div>
         </el-card>
-      </div>
-    </el-card>
+      </el-col>
+      <el-col :span="7" class="col-2">
+
+        <!-- 我的消息 -->
+        <el-card class="card card-3">
+          <div slot="header" class="clearfix">
+            <span>我的消息</span>
+            <el-button style="float: right; padding: 3px 0" type="text">
+              <svg-icon icon-class="arrow-right" />
+            </el-button>
+          </div>
+          <div class="msg" v-for="item in msgData" :key="item.id">
+            <svg-icon icon-class="arrow-right" />
+            <span>{{item.title}}
+              <svg-icon icon-class="arrow-right" /></span>
+          </div>
+        </el-card>
+        <!-- 我看过的 -->
+        <el-card class="card card-4">
+          <div slot="header" class="clearfix">
+            <span>我看过的</span>
+            <el-button style="float: right; padding: 3px 0" type="text">
+              <svg-icon icon-class="arrow-right" />
+            </el-button>
+          </div>
+          <div class="videos">
+            <el-card class="video-card" v-for="item in contentData" :key="item.id"
+              :body-style="{ padding: '0px' }">
+              <VideoItem :content="item" />
+              <div class="info">
+                <span>产品名称（机器人）
+                  <svg-icon icon-class="arrow-right" /></span>
+                <div class="bottom">
+                  <div>￥<span class="money">399</span></div>
+                  <div>
+                    <svg-icon icon-class="arrow-right" />
+                    <svg-icon icon-class="arrow-right" />
+                  </div>
+                </div>
+              </div>
+            </el-card>
+          </div>
+        </el-card>
+      </el-col>
+    </el-row>
   </div>
 </template>
 <script>
@@ -188,8 +198,6 @@ export default {
 <style lang="scss" scoped>
 .main {
   width: 970px;
-  margin: 100px 360px 0 0;
-  float: right;
 }
 .header {
   padding: 0 20px;
@@ -274,7 +282,7 @@ export default {
     }
   }
 }
-.card-3{
+.card-3 {
   width: 250px;
   float: right;
 }
@@ -298,6 +306,11 @@ export default {
   .video-card {
     width: 210px;
     margin-bottom: 15px;
+  }
+}
+.row{
+  .col-2{
+    float: right;
   }
 }
 </style>
