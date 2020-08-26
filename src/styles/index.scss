@@ -194,10 +194,13 @@ aside {
 .el-menu-item {
   padding: 0 !important;
 }
-.el-select .el-input__inner {
-  border: none;
-  color: #000 !important;
-  background-color: none !important;
+.select {
+  .el-select .el-input__inner,
+  .el-input--suffix .el-input__inner {
+    border: none !important;
+    color: #000 !important;
+    background-color: none !important;
+  }
 }
 .el-tabs__nav-wrap::after {
   background-color: none !important;
@@ -222,5 +225,12 @@ aside {
   color: crimson;
 }
 .el-menu-item:hover {
-  background:none;
+  background: none;
+}
+.el-radio__input.is-checked .el-radio__inner {
+  border-color: crimson;
+  background-color: crimson;
+}
+.el-radio__input.is-checked + .el-radio__label {
+  color: crimson;
 }

@@ -2,72 +2,64 @@
   <div class="main">
     <el-card>
       <div class="title">
-        <svg-icon icon-class="arrow-down" />
-        {{role==='seller'?'产品试用管理':'我的试用'}}
+        <svg-icon icon-class="arrow-down" />已发布的视频
       </div>
       <!-- 筛选区域 -->
       <el-row class="header">
         <el-col :span="14">
+
           <el-tabs>
-            <el-tab-pane label="全部试用"></el-tab-pane>
-            <el-tab-pane label="申请中"></el-tab-pane>
+            <el-tab-pane label="全部视频"></el-tab-pane>
+            <el-tab-pane label="审核中"></el-tab-pane>
             <el-tab-pane>
               <span slot="label">
-                待评价<sup class="badge">1</sup>
+                已发布<sup class="badge">1</sup>
               </span>
             </el-tab-pane>
-            <el-tab-pane label="已评价"></el-tab-pane>
+            <el-tab-pane label="未发布"></el-tab-pane>
           </el-tabs>
         </el-col>
         <el-col :span="8">
-
           <el-input v-model="value1" class="input">
             <el-button slot="append" icon="el-icon-search"></el-button>
           </el-input>
         </el-col>
-
         <el-col :span="2">
-
           <el-select v-model="value2" placeholder="筛选" class="select">
             <el-option v-for="item in options" :key="item.value" :label="item.label"
               :value="item.value">
             </el-option>
           </el-select>
         </el-col>
-
       </el-row>
+
       <div class="label">
-        <div class="col-1">
-          <el-select v-model="value2" placeholder="近三个月的试用" class="select">
-            <el-option v-for="item in options" :key="item.value" :label="item.label"
-              :value="item.value">
-            </el-option>
-          </el-select>
-          {{role==='seller'?'申请项目':'项目详情'}}
-        </div>
-        <div class="col-2">{{role==='seller'?'申请账号':'项目企业'}}</div>
+        <div class="col-1">视频名称</div>
+        <div class="col-2">上传时间</div>
         <div class="col-3">状态</div>
         <div class="col-4">操作</div>
       </div>
       <div class="list">
         <div class="cell" v-for="(item,index) in list" :key="index">
           <div class="top">
-            <div>{{item.time}}</div>
-            <div>单号：<span>{{item.num}}</span></div>
+            <div>编号：<span>{{item.num}}</span></div>
           </div>
           <div class="bot">
             <div class="col-1">
               <img :src="item.src" alt="">
               <p>{{item.title}}</p>
             </div>
-            <div class="col-2">{{item.company}}<i class="el-icon-chat-dot-round"></i></div>
+            <div class="col-2">{{item.time}}</div>
             <div class="col-3">
               <div>{{statusMap[item.status]}}</div>
+              <div class="grey">视频详情</div>
             </div>
             <div class="col-4">
-              <el-button type="text" v-if="item.status===1">同意</el-button>
-              <el-button type="text" v-if="item.status===1">拒绝</el-button>
-              <el-button type="text" v-if="item.status===3">查看评价</el-button>
+              <el-button type="text" v-if="item.status===1">取消发布</el-button>
+              <el-button type="text" v-if="item.status===4">重新发布</el-button>
+              <el-button type="text" v-if="item.status===3||item.status===4">重新编辑</el-button>
+              <el-button type="text" v-if="item.status===2">下架视频</el-button>
+              <el-button type="text">删除视频</el-button>
             </div>
           </div>
         </div>
@@ -79,24 +71,22 @@
 export default {
   data() {
     return {
-      role: '',
       value1: '',
       value2: '',
       options: [],
       list: [
         { time: '2020-08-06 17:15:48', num: 12990756523, src: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg', title: '扫地机器人1C智能家用全自动扫拖一体机拖地吸尘器三合一', company: '杭州域加网络科技有限公司', status: 1 },
         { time: '2020-08-06 17:15:48', num: 12990756523, src: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg', title: '扫地机器人1C智能家用全自动扫拖一体机拖地吸尘器三合一', company: '杭州域加网络科技有限公司', status: 2 },
-        { time: '2020-08-06 17:15:48', num: 12990756523, src: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg', title: '扫地机器人1C智能家用全自动扫拖一体机拖地吸尘器三合一', company: '杭州域加网络科技有限公司', status: 3 }
+        { time: '2020-08-06 17:15:48', num: 12990756523, src: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg', title: '扫地机器人1C智能家用全自动扫拖一体机拖地吸尘器三合一', company: '杭州域加网络科技有限公司', status: 3 },
+        { time: '2020-08-06 17:15:48', num: 12990756523, src: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg', title: '扫地机器人1C智能家用全自动扫拖一体机拖地吸尘器三合一', company: '杭州域加网络科技有限公司', status: 4 }
       ],
       statusMap: {
-        1: '申请中',
-        2: '已同意，待评价',
-        3: '已评价',
+        1: '审核中',
+        2: '已发布',
+        3: '审核失败',
+        4: '已下架',
       }
     }
-  },
-  created() {
-    this.role = localStorage.role
   }
 }
 </script>
@@ -107,6 +97,7 @@ export default {
     font-weight: 600;
   }
   .grey {
+    font-size: 15px;
     color: #888;
     margin: 0;
   }
@@ -136,8 +127,15 @@ export default {
   margin-bottom: 20px;
   display: flex;
   align-content: center;
+  .col-1 {
+    text-align: center;
+  }
 }
 .list {
+  .col-1 {
+    display: flex;
+    align-items: center;
+  }
   .cell {
     border: 1px solid #f0f0f0;
     margin-bottom: 20px;
@@ -172,8 +170,6 @@ export default {
 
 .col-1 {
   width: 35%;
-  display: flex;
-  align-items: center;
   .select {
     width: 150px;
   }
