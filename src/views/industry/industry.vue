@@ -52,7 +52,7 @@ import Nav from '@/components/Nav'
 
 import VideoItem from '../components/VideoItem'
 export default {
-   components: {
+  components: {
     Header,
     Nav,
     NavSticky,
@@ -98,7 +98,12 @@ export default {
 
 <style lang="scss" scoped>
 .industry-main {
-  background: #F2F2F2;
+  width: 100vw;
+  overflow: hidden;
+  background: url(../../assets/pics/banner2.jpg) no-repeat;
+  background-position-x: center;
+  background-position-y: top;
+  background-size: 1920px;
   .main {
     width: 1200px;
     margin-left: auto;
