@@ -40,28 +40,28 @@ const routes = [
   // 会员中心
   {
     path: '/MemberCenter',
-    component: () => import('@/views/memberCenter/index.vue'),
+    component: () => import('@/views/MemberCenter/index.vue'),
     redirect: '/MemberCenter/home',
     children: [
       {
         path: 'home',
         name: '主页',
-        component: () => import('@/views/memberCenter/home.vue')
+        component: () => import('@/views/MemberCenter/home.vue')
       },
       {
         path: 'information',
         name: '个人信息',
-        component: () => import('@/views/memberCenter/information.vue')
+        component: () => import('@/views/MemberCenter/information.vue')
       },
       {
         path: 'security',
         name: '账户安全',
-        component: () => import('@/views/memberCenter/security.vue')
+        component: () => import('@/views/MemberCenter/security.vue')
       },
       {
         path: 'tryout',
         name: '我的试用',
-        component: () => import('@/views/memberCenter/tryout.vue')
+        component: () => import('@/views/MemberCenter/tryout.vue')
       }
     ]
   }
