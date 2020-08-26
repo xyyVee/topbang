@@ -207,7 +207,7 @@ import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import VideoItemHome from './components/VideoItemHome'
 import LiveItemHome from './components/LiveItemHome'
 // If you use Swiper 6.0.0 or higher
-import 'swiper/css/swiper.min.css'
+// import 'swiper/css/swiper.min.css'
 export default {
   name: 'Home',
   components: {

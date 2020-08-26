@@ -62,6 +62,26 @@ const routes = [
         path: 'tryout',
         name: '我的试用',
         component: () => import('@/views/memberCenter/tryout.vue')
+      },
+      {
+        path: 'comment',
+        name: '我的评价',
+        component: () => import('@/views/memberCenter/comment.vue')
+      },
+      {
+        path: 'allMsgs',
+        name: '所有消息',
+        component: () => import('@/views/memberCenter/allMsgs.vue')
+      },
+      {
+        path: 'setMsgs',
+        name: '消息设置',
+        component: () => import('@/views/memberCenter/setMsgs.vue')
+      },
+      {
+        path: 'funding',
+        name: '资金详情',
+        component: () => import('@/views/memberCenter/funding.vue')
       }
     ]
   }
