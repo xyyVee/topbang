@@ -21,7 +21,7 @@ export default {
   data() {
     return {
       defaultOpeneds: ['1', '2', '3', '4', '5', '6', '7'],
-      memu:[],
+      memu: [],
       // 买家目录
       menu1: [
         {
@@ -103,9 +103,9 @@ export default {
       ]
     }
   },
-  created(){
-    localStorage.role='seller'
-    this.menu=localStorage.role==='seller'?this.menu2:this.menu1
+  created() {
+    localStorage.role = 'buyer'
+    this.menu = localStorage.role === 'seller' ? this.menu2 : this.menu1
   }
 }
 </script>

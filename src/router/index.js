@@ -52,9 +52,9 @@ const routes = [
   },
   // 会员中心
   {
-    path: '/MemberCenter',
+    path: '/memberCenter',
     component: () => import('@/views/memberCenter/index.vue'),
-    redirect: '/MemberCenter/home',
+    redirect: '/memberCenter/home',
     children: [
       {
         path: 'buyerHome',
@@ -112,6 +112,12 @@ const routes = [
         component: () => import('@/views/memberCenter/funding.vue')
       }
     ]
+  },
+  // 认证
+  {
+    path: '/authentication',
+    name: 'authentication',
+    component: () => import('@/views/authentication/index.vue')
   }
 ]
 
