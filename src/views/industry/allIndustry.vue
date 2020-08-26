@@ -7,17 +7,21 @@
       <div class="industry">
         <div class="title">
           <span class="icon">
-            <img src="../assets/icons/industry1.png" />
+            <img src="../../assets/icons/industry1.png" />
           </span>
           <span>农林牧渔业产品</span>
+          <span class="more">
+            更多
+            <i class="el-icon-arrow-right"></i>
+          </span>
         </div>
         <div class="list-content">
           <div class="left">
             <div class="img1">
-              <img class="pic" src="../assets/pics/sample1.jpg" />
+              <img class="pic" src="../../assets/pics/sample1.jpg" />
             </div>
             <div class="img2">
-              <img class="pic" src="../assets/pics/sample1.jpg" />
+              <img class="pic" src="../../assets/pics/sample1.jpg" />
             </div>
           </div>
           <div class="right">
@@ -30,17 +34,21 @@
       <div class="industry">
         <div class="title">
           <span class="icon">
-            <img src="../assets/icons/industry2.png" />
+            <img src="../../assets/icons/industry2.png" />
           </span>
           <span>采矿业产品</span>
+          <span class="more">
+            更多
+            <i class="el-icon-arrow-right"></i>
+          </span>
         </div>
         <div class="list-content">
           <div class="left">
             <div class="img1">
-              <img class="pic" src="../assets/pics/sample1.jpg" />
+              <img class="pic" src="../../assets/pics/sample1.jpg" />
             </div>
             <div class="img2">
-              <img class="pic" src="../assets/pics/sample1.jpg" />
+              <img class="pic" src="../../assets/pics/sample1.jpg" />
             </div>
           </div>
           <div class="right">
@@ -53,17 +61,21 @@
       <div class="industry">
         <div class="title">
           <span class="icon">
-            <img src="../assets/icons/industry3.png" />
+            <img src="../../assets/icons/industry3.png" />
           </span>
           <span>制造业产品</span>
+          <span class="more">
+            更多
+            <i class="el-icon-arrow-right"></i>
+          </span>
         </div>
         <div class="list-content">
           <div class="left">
             <div class="img1">
-              <img class="pic" src="../assets/pics/sample1.jpg" />
+              <img class="pic" src="../../assets/pics/sample1.jpg" />
             </div>
             <div class="img2">
-              <img class="pic" src="../assets/pics/sample1.jpg" />
+              <img class="pic" src="../../assets/pics/sample1.jpg" />
             </div>
           </div>
           <div class="right">
@@ -76,17 +88,21 @@
       <div class="industry">
         <div class="title">
           <span class="icon">
-            <img src="../assets/icons/industry4.png" />
+            <img src="../../assets/icons/industry4.png" />
           </span>
           <span>建筑业产品</span>
+          <span class="more">
+            更多
+            <i class="el-icon-arrow-right"></i>
+          </span>
         </div>
         <div class="list-content">
           <div class="left">
             <div class="img1">
-              <img class="pic" src="../assets/pics/sample1.jpg" />
+              <img class="pic" src="../../assets/pics/sample1.jpg" />
             </div>
             <div class="img2">
-              <img class="pic" src="../assets/pics/sample1.jpg" />
+              <img class="pic" src="../../assets/pics/sample1.jpg" />
             </div>
           </div>
           <div class="right">
@@ -99,17 +115,21 @@
       <div class="industry">
         <div class="title">
           <span class="icon">
-            <img src="../assets/icons/industry5.png" />
+            <img src="../../assets/icons/industry5.png" />
           </span>
           <span>批发和零售业产品</span>
+          <span class="more">
+            更多
+            <i class="el-icon-arrow-right"></i>
+          </span>
         </div>
         <div class="list-content">
           <div class="left">
             <div class="img1">
-              <img class="pic" src="../assets/pics/sample1.jpg" />
+              <img class="pic" src="../../assets/pics/sample1.jpg" />
             </div>
             <div class="img2">
-              <img class="pic" src="../assets/pics/sample1.jpg" />
+              <img class="pic" src="../../assets/pics/sample1.jpg" />
             </div>
           </div>
           <div class="right">
@@ -130,7 +150,7 @@ import NavSticky from '@/components/NavSticky'
 import Footer from '@/components/Footer'
 import Nav from '@/components/Nav'
 
-import VideoItem from './components/VideoItem'
+import VideoItem from '../components/VideoItem'
 export default {
   components: {
     Header,
@@ -178,6 +198,7 @@ export default {
     padding-top: 25px;
   }
   .industry {
+    position: relative;
     margin-right: 20px;
     margin-bottom: 58px;
     .title {
@@ -205,6 +226,18 @@ export default {
           transform: translate(-50%, -50%);
         }
       }
+    }
+    .more {
+      position: absolute;
+      right: 0;
+      width: 66px;
+      height: 22px;
+      border: 1px solid #cccccc;
+      border-radius: 2px;
+      color: #999999;
+      font-size: 14px;
+      padding-left: 12px;
+      cursor: pointer;
     }
   }
   .list-content {

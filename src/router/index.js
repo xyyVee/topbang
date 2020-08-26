@@ -33,7 +33,13 @@ const routes = [
   {
     path: '/allIndustry',
     name: 'AllIndustry',
-    component: () => import('../views/allIndustry.vue')
+    component: () => import('../views/industry/allIndustry.vue')
+  },
+  // 热门行业
+  {
+    path: '/industry',
+    name: 'Industry',
+    component: () => import('../views/industry/industry.vue')
   },
   // 公司主页
   {

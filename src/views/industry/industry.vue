@@ -1,0 +1,212 @@
+<template>
+  <div class="industry-main">
+    <Header />
+    <NavSticky :sticky="60" />
+    <div class="main">
+      <div class="industry">
+        <div class="title">
+          <span class="icon">
+            <img src="../../assets/icons/industry6.png" />
+          </span>
+          <span>人工智能 (AI)产品</span>
+        </div>
+        <div class="list-content">
+          <div class="left">
+            <div class="img1">
+              <img class="pic" src="../../assets/pics/sample1.jpg" />
+            </div>
+            <div class="img2">
+              <img class="pic" src="../../assets/pics/sample1.jpg" />
+            </div>
+          </div>
+          <div class="right">
+            <VideoItem v-for="item in contentData" :key="item.id" class="right-item" :content="item" />
+          </div>
+        </div>
+      </div>
+
+      <div class="industry">
+        <div class="title">
+          <span class="icon">
+            <img src="../../assets/icons/star.png" />
+          </span>
+          <span>只为你</span>
+        </div>
+        <div class="star-list">
+          <div v-for="(item, index) in array" :key="index" class="wrap">
+            <VideoItem :content="item" :show-bottom="true" :bottom-style="2" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <Footer />
+    <Nav />
+  </div>
+</template>
+
+<script>
+import Header from '@/components/Header'
+import NavSticky from '@/components/NavSticky'
+import Footer from '@/components/Footer'
+import Nav from '@/components/Nav'
+
+import VideoItem from '../components/VideoItem'
+export default {
+   components: {
+    Header,
+    Nav,
+    NavSticky,
+    Footer,
+    VideoItem
+  },
+  data() {
+    return {
+      array: [],
+      contentData: [
+        {
+          id: 1,
+          title: '视频分析',
+        }, {
+          id: 2,
+          title: '在线教育',
+        }, {
+          id: 3,
+          title: '智能家居',
+        }, {
+          id: 4,
+          title: '语音识别',
+        }, {
+          id: 5,
+          title: '车辆追踪',
+        }, {
+          id: 6,
+          title: '智慧社区'
+        }
+      ]
+    }
+  },
+  created() {
+    for(let i = 0; i < 20; i++) {
+      this.array.push({
+        id: i+1,
+        other: 'test'
+      })
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.industry-main {
+  background: #F2F2F2;
+  .main {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 120px;
+  }
+  .industry {
+    margin-right: 20px;
+    margin-bottom: 58px;
+    margin-top: 20px;
+    .title {
+      display: flex;;
+      font-size: 30px;
+      color: #333333;
+      font-weight: bold;
+      justify-content: flex-start;
+      align-items: center;
+      margin-bottom: 10px;
+      .icon {
+        display: inline-block;
+        position: relative;
+        width: 50px;
+        height: 50px;
+        background: #ffffff;
+        margin-right: 21px;
+        img {
+          position: absolute;
+          width: 30px;
+          height: 30px;
+          object-fit: cover;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+  }
+  .list-content {
+    width: 1200px;
+    height: 296px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background: #ffffff;
+    .left {
+      display: flex;
+      width: 470px;
+      justify-content: space-between;
+      .img1, .img2 {
+        display: inline-block;
+        .icon {
+          position: absolute;
+          top: 43px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        .pic {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        .txt {
+          position: absolute;
+          width: 100%;
+          top: 103px;
+          text-align: center;
+          font-size: 14px;
+          color: #ffffff;
+        }
+      }
+      .img1 {
+        position: relative;
+        width: 260px;
+        height: 256px;
+      }
+      .img2 {
+        position: relative;
+        width: 190px;
+        height: 256px;
+        margin-left: 20px;
+      }
+    }
+    .right {
+      width: 670px;
+    }
+    .right-item {
+      margin-right: 20px;
+      margin-bottom: 20px;
+      &:nth-child(3n) {
+        margin-right: 0;
+        margin-bottom: 0;
+      }
+    }
+  }
+  .star-list {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #ffffff;
+    padding: 20px;
+    .wrap {
+      display: inline-block;
+      margin-right: 27px;
+      margin-bottom: 27px;
+      &:nth-child(5n) {
+        margin-right: 0;
+      }
+    }
+  }
+}
+</style>
