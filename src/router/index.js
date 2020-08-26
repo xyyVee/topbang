@@ -69,9 +69,14 @@ const routes = [
     redirect: '/MemberCenter/home',
     children: [
       {
-        path: 'home',
-        name: '主页',
-        component: () => import('@/views/memberCenter/home.vue')
+        path: 'buyerHome',
+        name: '买家主页',
+        component: () => import('@/views/memberCenter/buyerHome.vue')
+      },
+      {
+        path: 'sellerHome',
+        name: '卖家主页',
+        component: () => import('@/views/memberCenter/sellerHome.vue')
       },
       {
         path: 'information',
@@ -102,6 +107,16 @@ const routes = [
         path: 'setMsgs',
         name: '消息设置',
         component: () => import('@/views/memberCenter/setMsgs.vue')
+      },
+      {
+        path: 'videoRelease',
+        name: '发布视频',
+        component: () => import('@/views/memberCenter/videoRelease.vue')
+      },
+      {
+        path: 'videoPosted',
+        name: '已发布的视频',
+        component: () => import('@/views/memberCenter/videoPosted.vue')
       },
       {
         path: 'funding',
