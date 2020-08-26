@@ -29,6 +29,19 @@ const routes = [
     name: 'ProductMain',
     component: () => import('../views/product/main.vue')
   },
+  // 全行业
+  {
+    path: '/allIndustry',
+    name: 'AllIndustry',
+    component: () => import('../views/industry/allIndustry.vue')
+  },
+  // 热门行业
+  {
+    path: '/industry',
+    name: 'Industry',
+    component: () => import('../views/industry/industry.vue')
+  },
+  // 公司主页
   {
     path: '/about',
     name: 'About',

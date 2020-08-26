@@ -40,7 +40,7 @@
     width: 100%;
     height: 54px;
     background: #ffffff;
-    z-index: 2;
+    z-index: 4;
     .header {
         position: relative;
         width: 988px;

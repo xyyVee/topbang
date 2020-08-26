@@ -27,7 +27,11 @@
           </div>
         </div>
         <!-- nav 其他项 -->
-        <div v-for="(m, index) in menu" :key="index" class="other">{{ m }}</div>
+        <div v-for="(m, index) in menu" :key="index" class="other">
+          <router-link class="nav-link" to="/industry">
+            {{ m }}
+          </router-link>
+        </div>
       </div>
     </div>
   </div>
@@ -220,11 +224,12 @@ export default {
 <style lang="scss" scoped>
 .sticky {
   position: absolute;
-  top: 60px;
+  top: 50px;
   width: 100%;
   height: 60px;
   background: #ffffff;
   box-shadow: 2px 2px 5px #d9d9d9;
+  z-index: 3;
   .main {
     position: relative;
     width: 1200px;
@@ -273,7 +278,10 @@ export default {
       height: 100%;
       line-height: 60px;
       margin-left: 50px;
-      cursor: pointer;
+    }
+    .nav-link {
+      text-decoration: none;
+      color: #333333;
       &:hover {
         color: #C34840;
       }

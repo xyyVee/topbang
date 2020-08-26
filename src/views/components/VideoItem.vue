@@ -2,7 +2,7 @@
   <div class="video-item">
     <div class="top" :style="{height: height + 'px', width: width + 'px'}">
       <img src="../../assets/pics/sample2.jpg" />
-      <span class="title">{{content.title}}</span>
+      <span class="title" v-if="content.title">{{content.title}}</span>
       <div class="cover">
         <div class="inner">
           <span class="item">
@@ -17,23 +17,44 @@
         </div>
       </div>
     </div>
-    <div v-if="showBottom" class="bottom" :style="{width: width + 'px'}">
-      <div class="name">产品名称（机器人）</div>
-      <div class="operate">
-        <a class="edit">编辑</a>
-        <a>查看详情</a>
-        <img class="del" src="../../assets/icons/delete.png" />
+    <template v-if="showBottom">
+      <div v-if="bottomStyle === 1" class="bottom" :style="{width: width + 'px'}">
+        <div class="name">产品名称（机器人）</div>
+        <div class="operate">
+          <a class="edit">编辑</a>
+          <a>查看详情</a>
+          <img class="del" src="../../assets/icons/delete.png" />
+        </div>
       </div>
-    </div>
+      <div v-else-if="bottomStyle === 2" class="bottom style2" :style="{width: width + 'px'}">
+        <div class="name">
+          产品名称（机器人）
+          <i class="el-icon-star-on"></i>
+        </div>
+        <div class="operate">
+          <span class="price">¥<span class="num">299</span></span>
+          <div class="icons">
+            <svg-icon class="like" icon-class="heart" />
+            <svg-icon class="share" icon-class="share" />
+          </div>
+        </div>
+      </div>
+    </template>
   </div>
 </template>
 
 <script>
 export default {
   props: { 
+    // 是否展示底部
     showBottom: {
       type: Boolean,
       default: false
+    },
+    // 底部样式，默认1
+    bottomStyle: {
+      type: Number,
+      default: 1,
     },
     content: {
       type: Object,
@@ -142,6 +163,29 @@ export default {
         height: 12px;
         cursor: pointer;
         margin-top: 4px;
+      }
+    }
+    .el-icon-star-on {
+      color: #FF9500;
+    }
+    .price {
+      font-size: 12px;
+      color: #000000;
+      .num {
+        font-size: 16px;
+        color: #FF5040;
+      }
+    }
+  }
+  .style2 .operate {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 14px;
+    .icons {
+      color: #9C9C9C;
+      .like {
+        margin-right: 16px;
       }
     }
   }
