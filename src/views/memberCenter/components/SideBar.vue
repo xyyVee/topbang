@@ -104,8 +104,9 @@ export default {
     }
   },
   created() {
-    localStorage.role = 'buyer'
-    this.menu = localStorage.role === 'seller' ? this.menu2 : this.menu1
+    const role = this.$route.query.seller ? 'seller' : 'buyer'
+    this.menu = role === 'seller' ? this.menu2 : this.menu1
+    localStorage.role = role
   }
 }
 </script>

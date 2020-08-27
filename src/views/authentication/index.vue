@@ -47,7 +47,7 @@ export default {
     }
   },
   created() {
-    this.role = localStorage.role
+    this.role= this.$route.query.seller ? 'seller' : 'buyer'
   },
   computed: {
     btnText() {
@@ -64,11 +64,11 @@ export default {
         return '返回会员中心'
       }
     },
-    notice(){
-      if(this.active === 2){
+    notice() {
+      if (this.active === 2) {
         return this.role === 'buyer' ? '您的账号已注册成功！进行实名认证享受更多服务。' : '您的账号已注册成功！进行企业认证享受更多服务。'
 
-      }else if(this.active === 3){
+      } else if (this.active === 3) {
         return this.role === 'buyer' ? '已成功提交实名认证，请耐心等待审核。' : '已成功提交企业认证，请耐心等待审核。'
       }
     }
@@ -117,7 +117,7 @@ export default {
       width: 150px;
     }
   }
-  .step{
+  .step {
     display: flex;
     flex-direction: column;
     align-items: center;
