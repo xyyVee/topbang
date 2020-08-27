@@ -7,9 +7,11 @@
         <el-step></el-step>
         <el-step></el-step>
       </el-steps>
-      {{active}}
       <div class="card">
-        <div v-if="active===1">
+        <div v-if="active===0">
+          <Register @tabVal="tabVal" />
+        </div>
+        <div v-else-if="active===1">
           <PersonalAuth v-if="role==='buyer'" />
           <BusinessAuth v-else />
         </div>
@@ -32,6 +34,7 @@
 import Header from '@/components/Header'
 import PersonalAuth from './PersonalAuth'
 import BusinessAuth from './BusinessAuth'
+import Register from './Register'
 import '@/styles/index.scss'
 
 export default {
@@ -39,19 +42,22 @@ export default {
   components: {
     Header,
     PersonalAuth,
-    BusinessAuth
+    BusinessAuth,
+    Register
   },
   data() {
     return {
-      active: 1
+      active: 0
     }
   },
   created() {
-    this.role= this.$route.query.seller ? 'seller' : 'buyer'
+    this.role = this.$route.query.seller === 1 ? 'seller' : 'buyer'
   },
   computed: {
     btnText() {
-      if (this.active === 1) {
+      if (this.active === 0) {
+        return '同意并注册'
+      } else if (this.active === 1) {
         return '提交认证'
       } else if (this.active === 2) {
         return this.role === 'buyer' ? '前往实名认证' : '前往企业认证'
@@ -60,7 +66,7 @@ export default {
       }
     },
     botText() {
-      if (this.active !== 1) {
+      if (this.active === 2 || this.active === 3) {
         return '返回会员中心'
       }
     },
@@ -77,6 +83,9 @@ export default {
 
     next() {
       if (this.active++ > 2) this.active = 0;
+    },
+    tabVal(v) {
+      this.role = v ? 'seller' : 'buyer'
     }
   }
 }
