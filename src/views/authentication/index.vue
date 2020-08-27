@@ -7,7 +7,6 @@
         <el-step></el-step>
         <el-step></el-step>
       </el-steps>
-      {{active}}
       <div class="card">
         <div v-if="active===1">
           <PersonalAuth v-if="role==='buyer'" />
