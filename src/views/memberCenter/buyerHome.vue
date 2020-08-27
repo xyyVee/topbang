@@ -23,7 +23,7 @@
     </el-card>
 
     <el-row class="row">
-      <el-col :span="16" class="col-1">
+      <el-col :span="17" class="col-1">
 
         <!-- 我的试用 -->
         <el-card class="card card-1">
@@ -84,23 +84,12 @@
           <div class="videos">
             <el-card class="video-card" v-for="item in contentData" :key="item.id"
               :body-style="{ padding: '0px' }">
-              <VideoItem :content="item" />
-              <div class="info">
-                <span>产品名称（机器人）
-                  <svg-icon icon-class="arrow-right" /></span>
-                <div class="bottom">
-                  <div>￥<span class="money">399</span></div>
-                  <div>
-                    <svg-icon icon-class="arrow-right" />
-                    <svg-icon icon-class="arrow-right" />
-                  </div>
-                </div>
-              </div>
+              <VideoItem :content="item" :show-bottom="true" :bottom-style="2" />
             </el-card>
           </div>
         </el-card>
       </el-col>
-      <el-col :span="7" class="col-2">
+      <el-col :span="6" class="col-2">
 
         <!-- 我的消息 -->
         <el-card class="card card-3">
@@ -127,18 +116,7 @@
           <div class="videos">
             <el-card class="video-card" v-for="item in contentData" :key="item.id"
               :body-style="{ padding: '0px' }">
-              <VideoItem :content="item" />
-              <div class="info">
-                <span>产品名称（机器人）
-                  <svg-icon icon-class="arrow-right" /></span>
-                <div class="bottom">
-                  <div>￥<span class="money">399</span></div>
-                  <div>
-                    <svg-icon icon-class="arrow-right" />
-                    <svg-icon icon-class="arrow-right" />
-                  </div>
-                </div>
-              </div>
+              <VideoItem :content="item" :show-bottom="true" :bottom-style="2" />
             </el-card>
           </div>
         </el-card>
@@ -278,7 +256,7 @@ export default {
     flex-wrap: wrap;
 
     .video-card {
-      margin-right: 15px;
+      margin-right: 10px;
     }
   }
 }
@@ -291,25 +269,13 @@ export default {
   float: right;
 }
 .card {
-  .info {
-    padding: 10px;
-    .bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      .money {
-        font-size: 24px;
-        color: orange;
-      }
-    }
-  }
   .video-card {
     width: 210px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
 }
-.row{
-  .col-2{
+.row {
+  .col-2 {
     float: right;
   }
 }
@@ -317,5 +283,8 @@ export default {
 <style lang="scss">
 .card-1 .el-card__header {
   border: none !important;
+}
+.card-2 .el-card__body {
+  padding: 20px 0 20px 20px;
 }
 </style>

@@ -50,9 +50,6 @@ export default {
       active: 0
     }
   },
-  created() {
-    this.role = this.$route.query.seller === 1 ? 'seller' : 'buyer'
-  },
   computed: {
     btnText() {
       if (this.active === 0) {
