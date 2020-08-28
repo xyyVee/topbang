@@ -9,65 +9,78 @@
     <div class="form">
       <el-form ref="form" :model="form" label-width="320px">
         <el-form-item label="注册地址" :rules="[{ required: true}]">
-          <el-input placeholder="请填写营业执照上的注册地址" class="input"></el-input>
+          <el-input placeholder="请填写营业执照上的注册地址" class="input" />
         </el-form-item>
         <el-form-item label="员工规模" :rules="[{ required: true}]">
-          <el-input type="text" placeholder="请填写员工规模" maxlength="20" show-word-limit class="input">
-          </el-input>
+          <el-input type="text" placeholder="请填写员工规模" maxlength="20" show-word-limit class="input" />
         </el-form-item>
         <el-form-item label="业务范畴" :rules="[{ required: true}]">
-          <el-input placeholder="请按照营业执照上的经营范围填写" class="input"></el-input>
+          <el-input placeholder="请按照营业执照上的经营范围填写" class="input" />
         </el-form-item>
         <el-form-item label="客户群体" :rules="[{ required: true}]">
-          <el-input placeholder="请填写企业客户群体" class="input"></el-input>
+          <el-input placeholder="请填写企业客户群体" class="input" />
         </el-form-item>
         <el-form-item label="统一社会信用代码" :rules="[{ required: true}]">
-          <el-input placeholder="请填写营业执照上的统一社会信用代码" class="input"></el-input>
+          <el-input placeholder="请填写营业执照上的统一社会信用代码" class="input" />
         </el-form-item>
 
         <el-form-item label="经营期限" :rules="[{ required: true}]">
-          <el-date-picker v-model="value1" type="daterange" range-separator="至"
-            start-placeholder="开始日期" end-placeholder="结束日期" class="input">
-          </el-date-picker>
+          <el-date-picker
+            v-model="value1"
+            type="daterange"
+            range-separator="至"
+            start-placeholder="开始日期"
+            end-placeholder="结束日期"
+            class="input"
+          />
         </el-form-item>
         <el-form-item label="上传营业执照附件" :rules="[{ required: true}]">
           <el-row>
-            <el-upload class="avatar-uploader" action="https://jsonplaceholder.typicode.com/posts/"
-              :show-file-list="false">
+            <el-upload
+              class="avatar-uploader"
+              action="https://jsonplaceholder.typicode.com/posts/"
+              :show-file-list="false"
+            >
               <img v-if="imageUrl" :src="imageUrl" class="avatar">
-              <i v-else class="el-icon-picture-outline avatar-uploader-icon"></i>
+              <i v-else class="el-icon-picture-outline avatar-uploader-icon" />
             </el-upload>
           </el-row>
         </el-form-item>
         <el-form-item label="法人姓名" :rules="[{ required: true}]">
-          <el-input placeholder="请填写法人姓名" class="input"></el-input>
+          <el-input placeholder="请填写法人姓名" class="input" />
         </el-form-item>
         <el-form-item label="法人身份证号码" :rules="[{ required: true}]">
-          <el-input placeholder="请填写法人身份证号码" class="input"></el-input>
+          <el-input placeholder="请填写法人身份证号码" class="input" />
         </el-form-item>
         <el-form-item label="法人身份证期限" :rules="[{ required: true}]">
-          <el-date-picker v-model="value1" type="daterange" range-separator="至"
-            start-placeholder="开始日期" end-placeholder="结束日期" class="input">
-          </el-date-picker>
+          <el-date-picker
+            v-model="value1"
+            type="daterange"
+            range-separator="至"
+            start-placeholder="开始日期"
+            end-placeholder="结束日期"
+            class="input"
+          />
         </el-form-item>
         <el-form-item label="上传法人身份证" :rules="[{ required: true}]">
           <el-row>
-            <el-upload class="avatar-uploader" action="https://jsonplaceholder.typicode.com/posts/"
-              :show-file-list="false">
+            <el-upload
+              class="avatar-uploader"
+              action="https://jsonplaceholder.typicode.com/posts/"
+              :show-file-list="false"
+            >
               <img v-if="imageUrl" :src="imageUrl" class="avatar">
-              <i v-else class="el-icon-picture-outline avatar-uploader-icon"></i>
+              <i v-else class="el-icon-picture-outline avatar-uploader-icon" />
             </el-upload>
-            <el-upload class="avatar-uploader" action="https://jsonplaceholder.typicode.com/posts/"
-              :show-file-list="false">
+            <el-upload
+              class="avatar-uploader"
+              action="https://jsonplaceholder.typicode.com/posts/"
+              :show-file-list="false"
+            >
               <img v-if="imageUrl" :src="imageUrl" class="avatar">
-              <i v-else class="el-icon-picture-outline avatar-uploader-icon"></i>
+              <i v-else class="el-icon-picture-outline avatar-uploader-icon" />
             </el-upload>
           </el-row>
-
-          <el-checkbox v-model="value2" label="1">
-            <p class="tip">创建网站账号的同时：我同意遵守 <span
-                class="blue">TOP帮企业认证协议</span>,<br />愿意接收相关来自TOP帮的会员及服务信息。</p>
-          </el-checkbox>
         </el-form-item>
       </el-form>
     </div>
