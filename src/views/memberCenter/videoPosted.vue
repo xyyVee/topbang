@@ -50,7 +50,12 @@
           <div class="bot">
             <div class="col-1">
               <img :src="item.src" alt="">
-              <p>{{ item.title }}</p>
+              <div>
+                <p>{{ item.title }}</p>
+                <span v-if="item.status===2||item.status===4" class="num">播放次数 4290</span>
+                <span v-if="item.status===2||item.status===4" class="num">试用申请次数 4290</span>
+              </div>
+
             </div>
             <div class="col-2">{{ item.time }}</div>
             <div class="col-3">
@@ -167,6 +172,11 @@ export default {
       height: 80px;
       object-fit: cover;
       margin-right: 10px;
+    }
+    .num{
+      font-size: 12px;
+      color: #999;
+      margin-right: 20px;
     }
   }
 }

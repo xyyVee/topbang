@@ -167,6 +167,11 @@ const routes = [
         path: 'statistics',
         name: '经营数据',
         component: () => import('@/views/memberCenter/statistics.vue')
+      },
+      {
+        path: 'service',
+        name: '在线客服',
+        component: () => import('@/views/memberCenter/service.vue')
       }
     ]
   },

@@ -48,7 +48,7 @@ export default {
         },
         {
           title: '客户服务', index: '5', icon: 'el-icon-setting', sub: [
-            { index: '5-1', path: '', text: '在线客服' },
+            { index: '5-1', path: '/memberCenter/service', text: '在线客服' },
             { index: '5-2', path: '/memberCenter/report', text: '举报中心' }
           ]
         }
@@ -94,7 +94,7 @@ export default {
         {
           title: '客户服务', index: '7', icon: 'el-icon-setting', sub: [
             { index: '7-1', path: '/memberCenter/violation', text: '违规记录' },
-            { index: '7-2', path: '', text: '在线客服' }
+            { index: '7-2', path: '/memberCenter/service', text: '在线客服' }
           ]
         }
       ]

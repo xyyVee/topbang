@@ -7,8 +7,17 @@
       <el-form ref="form" class="form" :model="form" label-width="80px" label-position="top">
         <el-form-item label="">
           <div class="label">文件上传<span class="grey">（推荐采用mp4、flv格式可有效缩短审核转码耗时）</span></div>
-          <el-upload class="upload-demo" action="https://jsonplaceholder.typicode.com/posts/">
-            <el-button size="small" type="primary">点击上传</el-button>
+          <el-upload
+            class="upload-demo"
+            action="https://jsonplaceholder.typicode.com/posts/"
+            :on-preview="handlePreview"
+            :on-remove="handleRemove"
+            :on-change="handleChange"
+            :file-list="fileList"
+            list-type="picture"
+            :limit="10"
+          >
+            <el-button slot="trigger" type="danger">{{ fileList.length>0?'继续上传':'点击上传' }}</el-button>
           </el-upload>
         </el-form-item>
         <el-form-item label="基本信息">
@@ -125,7 +134,14 @@ export default {
       input2: '',
       input3: '',
       input4: '',
-      imageUrl: ''
+      fileList: [],
+      imageUrl: '',
+      disabled: false
+    }
+  },
+  watch: {
+    fileList(val) {
+      console.log(111, val)
     }
   },
   methods: {
@@ -147,6 +163,15 @@ export default {
       }
       this.inputVisible = false
       this.inputValue = ''
+    },
+    handleRemove(file, fileList) {
+      console.log(file, fileList)
+    },
+    handlePreview(file) {
+      console.log(file)
+    },
+    handleChange(file, fileList) {
+      this.fileList = fileList
     }
   }
 }
@@ -199,7 +224,7 @@ export default {
 </style>
 <style>
 .avatar-uploader .el-upload {
-  border: 1px dashed #d9d9d9 ;
+  border: 1px dashed #d9d9d9;
   border-radius: 6px;
   cursor: pointer;
   position: relative;
