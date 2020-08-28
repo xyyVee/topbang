@@ -56,13 +56,13 @@ export default {
           id: 6,
           title: '智慧社区'
         }, {
-          id: 6,
+          id: 7,
           title: '智慧社区'
         }, {
-          id: 6,
+          id: 8,
           title: '智慧社区'
         }, {
-          id: 6,
+          id: 9,
           title: '智慧社区'
         }
       ]

@@ -139,11 +139,6 @@ export default {
       disabled: false
     }
   },
-  watch: {
-    fileList(val) {
-      console.log(111, val)
-    }
-  },
   methods: {
     handleClose(tag) {
       this.dynamicTags.splice(this.dynamicTags.indexOf(tag), 1)
