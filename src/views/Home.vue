@@ -12,7 +12,7 @@
         </div>
 
         <div class="center">
-          <swiper class="swiper" ref="mySwiper" :options="swiperOptions">
+          <swiper ref="mySwiper" class="swiper" :options="swiperOptions">
             <swiper-slide class="slide"><img src="../assets/pics/scroll-banner.png"></swiper-slide>
             <swiper-slide class="slide"><img src="../assets/pics/scroll-banner.png"></swiper-slide>
             <swiper-slide class="slide"><img src="../assets/pics/scroll-banner.png"></swiper-slide>
@@ -31,21 +31,21 @@
       </div>
       <div class="intro">
         <div class="head-title">
-            <img class="icon" src="../assets/icons/home-icon1.png" />
-            <div class="name">人工智能 (AI) 产品</div>
+          <img class="icon" src="../assets/icons/home-icon1.png">
+          <div class="name">人工智能 (AI) 产品</div>
         </div>
         <div class="desc">广泛应用于工业制造、城市交通、医疗健康、广泛应用于工业制造、城市交通、医疗健康、</div>
         <div class="intro-bg">
           <div class="list-content">
             <div class="left">
               <div class="img1">
-                <img class="icon" src="../assets/pics/pic5.png" />
-                <img class="pic" src="../assets/pics/sample1.jpg" />
+                <img class="icon" src="../assets/pics/pic5.png">
+                <img class="pic" src="../assets/pics/sample1.jpg">
                 <div class="txt">因知而智 工业全息洞察</div>
               </div>
               <div class="img2">
-                <img class="icon" src="../assets/pics/pic4.png" />
-                <img class="pic" src="../assets/pics/sample1.jpg" />
+                <img class="icon" src="../assets/pics/pic4.png">
+                <img class="pic" src="../assets/pics/sample1.jpg">
                 <div class="txt">因知而智 工业全息洞察</div>
               </div>
             </div>
@@ -59,21 +59,21 @@
 
       <div class="intro">
         <div class="head-title">
-            <img class="icon" src="../assets/icons/home-icon2.png" />
-            <div class="name">物联网产品</div>
+          <img class="icon" src="../assets/icons/home-icon2.png">
+          <div class="name">物联网产品</div>
         </div>
         <div class="desc">广泛应用于工业制造、城市交通、医疗健康、广泛应用于工业制造、城市交通、医疗健康、</div>
         <div class="intro-bg">
           <div class="list-content">
             <div class="left">
               <div class="img1">
-                <img class="icon" src="../assets/pics/pic5.png" />
-                <img class="pic" src="../assets/pics/sample1.jpg" />
+                <img class="icon" src="../assets/pics/pic5.png">
+                <img class="pic" src="../assets/pics/sample1.jpg">
                 <div class="txt">因知而智 工业全息洞察</div>
               </div>
               <div class="img2">
-                <img class="icon" src="../assets/pics/pic4.png" />
-                <img class="pic" src="../assets/pics/sample1.jpg" />
+                <img class="icon" src="../assets/pics/pic4.png">
+                <img class="pic" src="../assets/pics/sample1.jpg">
                 <div class="txt">因知而智 工业全息洞察</div>
               </div>
             </div>
@@ -87,21 +87,21 @@
 
       <div class="intro">
         <div class="head-title">
-            <img class="icon" src="../assets/icons/home-icon3.png" />
-            <div class="name">基因工程产品</div>
+          <img class="icon" src="../assets/icons/home-icon3.png">
+          <div class="name">基因工程产品</div>
         </div>
         <div class="desc">广泛应用于工业制造、城市交通、医疗健康、广泛应用于工业制造、城市交通、医疗健康、</div>
         <div class="intro-bg">
           <div class="list-content">
             <div class="left">
               <div class="img1">
-                <img class="icon" src="../assets/pics/pic5.png" />
-                <img class="pic" src="../assets/pics/sample1.jpg" />
+                <img class="icon" src="../assets/pics/pic5.png">
+                <img class="pic" src="../assets/pics/sample1.jpg">
                 <div class="txt">因知而智 工业全息洞察</div>
               </div>
               <div class="img2">
-                <img class="icon" src="../assets/pics/pic4.png" />
-                <img class="pic" src="../assets/pics/sample1.jpg" />
+                <img class="icon" src="../assets/pics/pic4.png">
+                <img class="pic" src="../assets/pics/sample1.jpg">
                 <div class="txt">因知而智 工业全息洞察</div>
               </div>
             </div>
@@ -123,17 +123,17 @@
         <div class="hot-list">
           <div class="n-title">热销产品 TOP 5</div>
           <div class="h-list">
-            <div v-for="(item, index) in contentData" :key="item.id" class="h-item" :class="{'not-active': +nowExpland !== +index}"  @mouseenter="setActive(index)" @mouseleave="setActive(0)">
-              <span class="no" :class="{'red': index <3 }">{{index+1}}</span>
+            <div v-for="(item, index) in contentData" :key="item.id" class="h-item" :class="{'not-active': +nowExpland !== +index}" @mouseenter="setActive(index)" @mouseleave="setActive(0)">
+              <span class="no" :class="{'red': index <3 }">{{ index+1 }}</span>
               <template v-if="+nowExpland === +index">
                 <div class="pre-img">
-                  <img src="../assets/pics/sample2.jpg" />
+                  <img src="../assets/pics/sample2.jpg">
                   <div class="play">
                     <svg-icon class="icon" icon-class="play" />
                   </div>
                 </div>
                 <div class="t-star">
-                  <div class="t-name">{{item.title}}</div>
+                  <div class="t-name">{{ item.title }}</div>
                   <span class="item">
                     <svg-icon class="like" icon-class="star" />
                     4290
@@ -141,7 +141,7 @@
                 </div>
               </template>
               <template v-else>
-                <div class="t-name">{{item.title}}</div>
+                <div class="t-name">{{ item.title }}</div>
               </template>
             </div>
           </div>
@@ -151,8 +151,8 @@
       <!-- ceo助力 -->
       <div class="intro">
         <div class="head-title">
-            <img class="icon" src="../assets/icons/home-icon4.png" />
-            <div class="name">CEO 助力</div>
+          <img class="icon" src="../assets/icons/home-icon4.png">
+          <div class="name">CEO 助力</div>
         </div>
         <div class="live-list">
           <LiveItemHome v-for="item in contentData.slice(0,5)" :key="item.id" :content="item" />
@@ -162,17 +162,17 @@
       <div class="finally">
         <div class="f-item">
           <div class="f-left">
-            <img src="../assets/pics/home-b1.png" />
+            <img src="../assets/pics/home-b1.png">
           </div>
           <div class="f-right">
             <div class="f-content">两万家智能家居服务企业，提供定制合作，这些优秀的供应商将为您竭诚服务</div>
             <div class="f-icons">
               <div class="icon">
-                <img src="../assets/icons/home-icon5.png" />
+                <img src="../assets/icons/home-icon5.png">
                 <span>行业标杆</span>
               </div>
               <div class="icon icon2">
-                <img src="../assets/icons/home-icon6.png" />
+                <img src="../assets/icons/home-icon6.png">
                 <span>企业认证供应商</span>
               </div>
             </div>
@@ -180,17 +180,17 @@
         </div>
         <div class="f-item">
           <div class="f-left">
-            <img src="../assets/pics/home-b2.png" />
+            <img src="../assets/pics/home-b2.png">
           </div>
           <div class="f-right">
             <div class="f-content">两万家智能家居服务企业，提供定制合作，这些优秀的供应商将为您竭诚服务</div>
             <div class="f-icons">
               <div class="icon">
-                <img src="../assets/icons/home-icon5.png" />
+                <img src="../assets/icons/home-icon5.png">
                 <span>行业标杆</span>
               </div>
               <div class="icon icon2">
-                <img src="../assets/icons/home-icon6.png" />
+                <img src="../assets/icons/home-icon6.png">
                 <span>企业认证供应商</span>
               </div>
             </div>
@@ -239,24 +239,24 @@ export default {
         '智能家居AI本地推理模块开发（一）',
         '智能和目安防传感器S1，提升质量',
         '5G、物联网、云计算行业竞争格局',
-        'AI机器人-智能养老服务好帮手 拷贝 4',
+        'AI机器人-智能养老服务好帮手 拷贝 4'
       ],
       contentData: [
         {
           id: 1,
-          title: '视频分析',
+          title: '视频分析'
         }, {
           id: 2,
-          title: '在线教育',
+          title: '在线教育'
         }, {
           id: 3,
-          title: '智能家居',
+          title: '智能家居'
         }, {
           id: 4,
-          title: '语音识别',
+          title: '语音识别'
         }, {
           id: 5,
-          title: '车辆追踪',
+          title: '车辆追踪'
         }, {
           id: 6,
           title: '智慧社区'
