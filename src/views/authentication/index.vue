@@ -85,7 +85,7 @@ export default {
     return {
       active: 0,
       value: '',
-      dialogVisible: true
+      dialogVisible: false
     }
   },
   computed: {
