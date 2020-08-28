@@ -2,16 +2,24 @@
   <div class="main">
     <el-card>
       <div class="title">
-        <svg-icon icon-class="arrow-down" />发布商品
+        <svg-icon icon-class="arrow-down" />视频直播
       </div>
       <el-form ref="form" class="form" :model="form" label-width="80px" label-position="top">
-        <el-form-item label="">
-          <div class="label">文件上传<span class="grey">（推荐采用mp4、flv格式可有效缩短审核转码耗时）</span></div>
-          <el-upload class="upload-demo" action="https://jsonplaceholder.typicode.com/posts/">
-            <el-button size="small" type="primary">点击上传</el-button>
-          </el-upload>
+
+        <el-form-item label="直播标题">
+          <el-input type="text" maxlength="30" placeholder="输入直播标题" show-word-limit />
         </el-form-item>
-        <el-form-item label="基本信息">
+        <el-form-item label="直播平台">
+          <el-select v-model="input1" placeholder="点击选择">
+            <el-option label="平台一" value="1" />
+            <el-option label="平台二" value="2" />
+          </el-select>
+        </el-form-item>
+        <el-form-item label="直播链接">
+          <el-input type="text" placeholder="输入直播的地址链接" />
+        </el-form-item>
+
+        <el-form-item label="视频封面设置（格式jpeg、png，文件大小<5MB）">
 
           <el-upload
             class="avatar-uploader"
@@ -42,10 +50,6 @@
             <el-option label="行业一" value="1" />
             <el-option label="行业二" value="2" />
           </el-select>
-        </el-form-item>
-
-        <el-form-item label="商品名称">
-          <el-input type="text" maxlength="30" placeholder="输入商品名称" show-word-limit />
         </el-form-item>
 
         <el-form-item label="标签">
@@ -87,10 +91,6 @@
           </el-radio-group>
         </el-form-item>
 
-        <el-form-item label="购买链接">
-          <el-input type="text" placeholder="请填写产品的购买地址" />
-        </el-form-item>
-
         <el-form-item label="软件试用下载（选填）">
           <el-input type="text" placeholder="请填写试用软件的下载地址" />
         </el-form-item>
@@ -99,7 +99,7 @@
           <Tinymce ref="editor" v-model="form.content" :height="400" />
         </el-form-item>
         <el-form-item>
-          <el-button type="danger">发布视频</el-button>
+          <el-button type="danger">发布直播</el-button>
         </el-form-item>
       </el-form>
     </el-card>
@@ -199,7 +199,7 @@ export default {
 </style>
 <style>
 .avatar-uploader .el-upload {
-  border: 1px dashed #d9d9d9 ;
+  border: 1px dashed #d9d9d9;
   border-radius: 6px;
   cursor: pointer;
   position: relative;

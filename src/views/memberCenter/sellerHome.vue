@@ -3,13 +3,13 @@
     <el-card class="card">
       <div class="header">
         <div class="info">
-          <img class="avatar" src="@/assets/pics/scroll-banner.png" />
+          <img class="avatar" src="@/assets/pics/scroll-banner.png">
           <div>
-            <div class="name">杭州域加网络科技有限公司<i class="el-icon-circle-check"></i></div>
+            <div class="name">杭州域加网络科技有限公司<i class="el-icon-circle-check" /></div>
             <div class="icons">
-              <img class="item" src="@/assets/icons/email.png" />
-              <img class="item" src="@/assets/icons/phone.png" />
-              <img class="item" src="@/assets/icons/member.png" />
+              <img class="item" src="@/assets/icons/email.png">
+              <img class="item" src="@/assets/icons/phone.png">
+              <img class="item" src="@/assets/icons/member.png">
               <el-tag type="info" size="mini">已认证</el-tag>
             </div>
           </div>
@@ -41,9 +41,9 @@
               <svg-icon icon-class="arrow-right" />
             </el-button>
           </div>
-          <div class="msg" v-for="item in msgData" :key="item.id">
+          <div v-for="item in msgData" :key="item.id" class="msg">
             <svg-icon icon-class="arrow-right" />
-            <span>{{item.title}}
+            <span>{{ item.title }}
               <svg-icon icon-class="arrow-right" /></span>
           </div>
         </el-card>
@@ -89,15 +89,19 @@
         <div slot="header" class="clearfix">
           <span>我的发布</span>
           <el-button style="float: right; padding: 3px" type="text">
-            管理全部<i class="el-icon-setting"></i>
+            管理全部<i class="el-icon-setting" />
           </el-button>
           <el-button style="float: right; padding: 3px" type="text">
-            发布<i class="el-icon-upload2"></i>
+            发布<i class="el-icon-upload2" />
           </el-button>
         </div>
         <div class="videos">
-          <el-card class="video-card" v-for="item in contentData" :key="item.id"
-            :body-style="{ padding: '0px' }">
+          <el-card
+            v-for="item in contentData"
+            :key="item.id"
+            class="video-card"
+            :body-style="{ padding: '0px' }"
+          >
             <VideoItem :content="item" />
             <div class="info">
               <span>产品名称（机器人）</span>
@@ -106,7 +110,7 @@
                   <el-button type="text">编辑</el-button>
                   <el-button type="text">查看详情</el-button>
                 </div>
-                <i class="el-icon-delete"></i>
+                <i class="el-icon-delete" />
               </div>
             </div>
           </el-card>
@@ -128,19 +132,19 @@ export default {
       contentData: [
         {
           id: 1,
-          title: '视频分析',
+          title: '视频分析'
         }, {
           id: 2,
-          title: '在线教育',
+          title: '在线教育'
         }, {
           id: 3,
-          title: '智能家居',
+          title: '智能家居'
         }, {
           id: 4,
-          title: '语音识别',
+          title: '语音识别'
         }, {
           id: 5,
-          title: '车辆追踪',
+          title: '车辆追踪'
         }, {
           id: 6,
           title: '智慧社区'
@@ -149,11 +153,11 @@ export default {
       msgData: [
         {
           id: 1,
-          title: '您有2张优惠券到账啦，快进来看看吧！',
+          title: '您有2张优惠券到账啦，快进来看看吧！'
         }, {
           id: 2,
-          title: '您有2张优惠券到账啦，快进来看看吧！',
-        },
+          title: '您有2张优惠券到账啦，快进来看看吧！'
+        }
       ]
     }
   }

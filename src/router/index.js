@@ -122,6 +122,51 @@ const routes = [
         path: 'funding',
         name: '资金详情',
         component: () => import('@/views/memberCenter/funding.vue')
+      },
+      {
+        path: 'report',
+        name: '举报中心',
+        component: () => import('@/views/memberCenter/report.vue')
+      },
+      {
+        path: 'videoStar',
+        name: '我的收藏',
+        component: () => import('@/views/memberCenter/videoStar.vue')
+      },
+      {
+        path: 'videoHistory',
+        name: '我的浏览记录',
+        component: () => import('@/views/memberCenter/videoHistory.vue')
+      },
+      {
+        path: 'videoLive',
+        name: '视频直播',
+        component: () => import('@/views/memberCenter/videoLive.vue')
+      },
+      {
+        path: 'violation',
+        name: '违规记录',
+        component: () => import('@/views/memberCenter/violation.vue')
+      },
+      {
+        path: 'videoBuy',
+        name: '视频购买',
+        component: () => import('@/views/memberCenter/videoBuy.vue')
+      },
+      {
+        path: 'marketing',
+        name: '营销推广',
+        component: () => import('@/views/memberCenter/marketing.vue')
+      },
+      {
+        path: 'marketVideos',
+        name: '已购推广',
+        component: () => import('@/views/memberCenter/marketVideos.vue')
+      },
+      {
+        path: 'statistics',
+        name: '经营数据',
+        component: () => import('@/views/memberCenter/statistics.vue')
       }
     ]
   },

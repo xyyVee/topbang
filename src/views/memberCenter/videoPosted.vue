@@ -9,26 +9,29 @@
         <el-col :span="14">
 
           <el-tabs>
-            <el-tab-pane label="全部视频"></el-tab-pane>
-            <el-tab-pane label="审核中"></el-tab-pane>
+            <el-tab-pane label="全部视频" />
+            <el-tab-pane label="审核中" />
             <el-tab-pane>
               <span slot="label">
                 已发布<sup class="badge">1</sup>
               </span>
             </el-tab-pane>
-            <el-tab-pane label="未发布"></el-tab-pane>
+            <el-tab-pane label="未发布" />
           </el-tabs>
         </el-col>
         <el-col :span="8">
           <el-input v-model="value1" class="input">
-            <el-button slot="append" icon="el-icon-search"></el-button>
+            <el-button slot="append" icon="el-icon-search" />
           </el-input>
         </el-col>
         <el-col :span="2">
           <el-select v-model="value2" placeholder="筛选" class="select">
-            <el-option v-for="item in options" :key="item.value" :label="item.label"
-              :value="item.value">
-            </el-option>
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            />
           </el-select>
         </el-col>
       </el-row>
@@ -40,25 +43,25 @@
         <div class="col-4">操作</div>
       </div>
       <div class="list">
-        <div class="cell" v-for="(item,index) in list" :key="index">
+        <div v-for="(item,index) in list" :key="index" class="cell">
           <div class="top">
-            <div>编号：<span>{{item.num}}</span></div>
+            <div>编号：<span>{{ item.num }}</span></div>
           </div>
           <div class="bot">
             <div class="col-1">
               <img :src="item.src" alt="">
-              <p>{{item.title}}</p>
+              <p>{{ item.title }}</p>
             </div>
-            <div class="col-2">{{item.time}}</div>
+            <div class="col-2">{{ item.time }}</div>
             <div class="col-3">
-              <div>{{statusMap[item.status]}}</div>
+              <div>{{ statusMap[item.status] }}</div>
               <div class="grey">视频详情</div>
             </div>
             <div class="col-4">
-              <el-button type="text" v-if="item.status===1">取消发布</el-button>
-              <el-button type="text" v-if="item.status===4">重新发布</el-button>
-              <el-button type="text" v-if="item.status===3||item.status===4">重新编辑</el-button>
-              <el-button type="text" v-if="item.status===2">下架视频</el-button>
+              <el-button v-if="item.status===1" type="text">取消发布</el-button>
+              <el-button v-if="item.status===4" type="text">重新发布</el-button>
+              <el-button v-if="item.status===3||item.status===4" type="text">重新编辑</el-button>
+              <el-button v-if="item.status===2" type="text">下架视频</el-button>
               <el-button type="text">删除视频</el-button>
             </div>
           </div>
@@ -84,7 +87,7 @@ export default {
         1: '审核中',
         2: '已发布',
         3: '审核失败',
-        4: '已下架',
+        4: '已下架'
       }
     }
   }

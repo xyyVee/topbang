@@ -9,8 +9,7 @@
           <div>安全等级</div>
         </el-col>
         <el-col :span="12">
-          <el-progress :stroke-width="12" :percentage="100" :format="format" color="#67C23A">
-          </el-progress>
+          <el-progress :stroke-width="12" :percentage="100" :format="format" color="#67C23A" />
         </el-col>
       </el-row>
 
@@ -90,10 +89,10 @@
 export default {
   methods: {
     format(percentage) {
-      return percentage === 100 ? '高' : `${percentage}%`;
+      return percentage === 100 ? '高' : `${percentage}%`
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

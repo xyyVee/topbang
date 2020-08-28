@@ -3,13 +3,13 @@
     <el-card class="card">
       <div class="header">
         <div class="info">
-          <img class="avatar" src="@/assets/pics/scroll-banner.png" />
+          <img class="avatar" src="@/assets/pics/scroll-banner.png">
           <div>
             <div class="name">会员名称</div>
             <div class="icons">
-              <img class="item" src="@/assets/icons/email.png" />
-              <img class="item" src="@/assets/icons/phone.png" />
-              <img class="item" src="@/assets/icons/member.png" />
+              <img class="item" src="@/assets/icons/email.png">
+              <img class="item" src="@/assets/icons/phone.png">
+              <img class="item" src="@/assets/icons/member.png">
               <el-tag type="info" size="mini">已认证</el-tag>
             </div>
           </div>
@@ -57,16 +57,18 @@
             </div>
           </div>
           <div class="list">
-            <div class="cell" v-for="(item,index) in list" :key="index">
+            <div v-for="(item,index) in list" :key="index" class="cell">
               <div class="left">
-                <el-image class="img" :src="item.src" fit="cover"></el-image>
+                <el-image class="img" :src="item.src" fit="cover" />
                 <div class="info">
-                  <div>{{item.title}}</div>
-                  <div class="time">{{item.time}}</div>
+                  <div>{{ item.title }}</div>
+                  <div class="time">{{ item.time }}</div>
                 </div>
               </div>
               <div class="btn">
-                <el-button type="text">查看详情</el-button> |<el-button type="text">查看评价</el-button>
+                <el-button type="text">查看详情</el-button>
+                <el-button type="text">|</el-button>
+                <el-button type="text">查看评价</el-button>
               </div>
             </div>
           </div>
@@ -78,12 +80,16 @@
             <span>猜你喜欢</span>
             <el-button style="float: right; padding: 3px 0" type="text">
               换一组
-              <svg-icon icon-class="arrow-right" />
+              <i class="el-icon-refresh" />
             </el-button>
           </div>
           <div class="videos">
-            <el-card class="video-card" v-for="item in contentData" :key="item.id"
-              :body-style="{ padding: '0px' }">
+            <el-card
+              v-for="item in contentData"
+              :key="item.id"
+              class="video-card"
+              :body-style="{ padding: '0px' }"
+            >
               <VideoItem :content="item" :show-bottom="true" :bottom-style="2" />
             </el-card>
           </div>
@@ -99,9 +105,9 @@
               <svg-icon icon-class="arrow-right" />
             </el-button>
           </div>
-          <div class="msg" v-for="item in msgData" :key="item.id">
-            <svg-icon icon-class="arrow-right" />
-            <span>{{item.title}}
+          <div v-for="item in msgData" :key="item.id" class="msg">
+            <i class="el-icon-message" />
+            <span>{{ item.title }}
               <svg-icon icon-class="arrow-right" /></span>
           </div>
         </el-card>
@@ -114,8 +120,12 @@
             </el-button>
           </div>
           <div class="videos">
-            <el-card class="video-card" v-for="item in contentData" :key="item.id"
-              :body-style="{ padding: '0px' }">
+            <el-card
+              v-for="item in contentData"
+              :key="item.id"
+              class="video-card"
+              :body-style="{ padding: '0px' }"
+            >
               <VideoItem :content="item" :show-bottom="true" :bottom-style="2" />
             </el-card>
           </div>
@@ -142,19 +152,19 @@ export default {
       contentData: [
         {
           id: 1,
-          title: '视频分析',
+          title: '视频分析'
         }, {
           id: 2,
-          title: '在线教育',
+          title: '在线教育'
         }, {
           id: 3,
-          title: '智能家居',
+          title: '智能家居'
         }, {
           id: 4,
-          title: '语音识别',
+          title: '语音识别'
         }, {
           id: 5,
-          title: '车辆追踪',
+          title: '车辆追踪'
         }, {
           id: 6,
           title: '智慧社区'
@@ -163,11 +173,11 @@ export default {
       msgData: [
         {
           id: 1,
-          title: '您有2张优惠券到账啦，快进来看看吧！',
+          title: '您有2张优惠券到账啦，快进来看看吧！'
         }, {
           id: 2,
-          title: '您有2张优惠券到账啦，快进来看看吧！',
-        },
+          title: '您有2张优惠券到账啦，快进来看看吧！'
+        }
       ]
     }
   }
@@ -208,6 +218,7 @@ export default {
   }
   .money {
     .num {
+      font-size: 24px;
       font-weight: 600;
     }
   }
@@ -240,6 +251,7 @@ export default {
         color: #888;
         .time {
           font-size: 13px;
+          margin-top: 5px;
         }
       }
     }
@@ -263,6 +275,10 @@ export default {
 .card-3 {
   width: 250px;
   float: right;
+
+  .msg {
+    margin: 10px 0;
+  }
 }
 .card-4 {
   width: 250px;
@@ -278,6 +294,9 @@ export default {
   .col-2 {
     float: right;
   }
+}
+.el-icon-message {
+  margin-right: 5px;
 }
 </style>
 <style lang="scss">

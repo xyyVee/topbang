@@ -29,19 +29,22 @@
         <el-col :span="14">
 
           <el-tabs>
-            <el-tab-pane label="资金明细"></el-tab-pane>
+            <el-tab-pane label="资金明细" />
           </el-tabs>
         </el-col>
         <el-col :span="8">
           <el-input v-model="value1" class="input">
-            <el-button slot="append" icon="el-icon-search"></el-button>
+            <el-button slot="append" icon="el-icon-search" />
           </el-input>
         </el-col>
         <el-col :span="2">
           <el-select v-model="value2" placeholder="筛选" class="select">
-            <el-option v-for="item in options" :key="item.value" :label="item.label"
-              :value="item.value">
-            </el-option>
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            />
           </el-select>
         </el-col>
       </el-row>
@@ -53,11 +56,11 @@
         <div class="col-4">备注</div>
       </div>
       <div class="list">
-        <div class="cell" v-for="(item,index) in list" :key="index">
-          <div class="col-1">{{item.time}}</div>
-          <div class="col-2" :class="[item.num>0?'green':'red']">{{item.num}}</div>
-          <div class="col-3">{{item.staus}}</div>
-          <div class="col-4">充值单号：<span class="blue">{{item.text}}</span></div>
+        <div v-for="(item,index) in list" :key="index" class="cell">
+          <div class="col-1">{{ item.time }}</div>
+          <div class="col-2" :class="[item.num>0?'green':'red']">{{ item.num }}</div>
+          <div class="col-3">{{ item.staus }}</div>
+          <div class="col-4">充值单号：<span class="blue">{{ item.text }}</span></div>
         </div>
       </div>
     </el-card>
@@ -80,7 +83,7 @@ export default {
         1: '审核中',
         2: '已发布',
         3: '审核失败',
-        4: '已下架',
+        4: '已下架'
       }
     }
   }
