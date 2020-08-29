@@ -1,6 +1,6 @@
 <template>
   <div class="main-page">
-    <div class="top">
+    <!-- <div class="top">
       <div class="header">
         <span class="title">欢 迎 来 到 TOP 帮</span>
         <div class="right">
@@ -9,7 +9,7 @@
           <span>免费注册</span>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="search-group">
       <div class="search">
         <input class="input" :placeholder="words[0]"/>
@@ -35,7 +35,8 @@
 <style lang="scss" scoped>
 .main-page {
   width: 100%;
-  height: 54px;
+  // height: 54px;
+  height: 780px;
   background: #ffffff;
   .top {
     position: absolute;
