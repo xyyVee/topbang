@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <!-- 个人信息 -->
-    <el-card v-if="role==='buyer'">
+    <el-card v-if="role==='buyer'" class="bg-2">
       <div class="title">
         <svg-icon icon-class="arrow-down" />个人信息
       </div>
@@ -75,7 +75,7 @@
       </el-row>
     </el-card>
     <!-- 公司信息 -->
-    <el-card v-else>
+    <el-card v-else class="bg-2">
       <div class="title">
         <svg-icon icon-class="arrow-down" />公司信息
       </div>

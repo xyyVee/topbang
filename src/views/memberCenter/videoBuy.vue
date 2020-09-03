@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <el-card>
+    <el-card class="bg-2">
       <div class="title">
         <svg-icon icon-class="arrow-down" />视频购买
       </div>

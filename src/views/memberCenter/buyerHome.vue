@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <el-card class="card">
+    <el-card class="card bg-1">
       <div class="header">
         <div class="info">
           <img class="avatar" src="@/assets/pics/scroll-banner.png">
@@ -92,6 +92,9 @@
             >
               <VideoItem :content="item" :show-bottom="true" :bottom-style="2" />
             </el-card>
+          </div>
+          <div class="btn">
+            <span><i class="el-icon-refresh" /> 换一组</span>
           </div>
         </el-card>
       </el-col>
@@ -271,6 +274,14 @@ export default {
       margin-right: 10px;
     }
   }
+  .btn {
+    text-align: center;
+    margin: 10px 0;
+    span {
+      padding: 5px 10px;
+      background: #f0f0f0;
+    }
+  }
 }
 .card-3 {
   width: 250px;
@@ -307,3 +318,4 @@ export default {
   padding: 20px 0 20px 20px;
 }
 </style>
+

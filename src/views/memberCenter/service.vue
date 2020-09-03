@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <el-card>
+    <el-card class="bg-2">
       <div class="title">
         <svg-icon icon-class="arrow-down" />在线客服
       </div>
@@ -56,6 +56,9 @@ export default {
     .name{
       margin: 0 20px;
     }
+  }
+  .bg-2{
+    height: 100%;
   }
 }
 </style>

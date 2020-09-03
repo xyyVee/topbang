@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <el-card class="card">
+    <el-card class="card bg-1">
       <div class="header">
         <div class="info">
           <img class="avatar" src="@/assets/pics/scroll-banner.png">
@@ -50,77 +50,152 @@
       </el-col>
 
     </el-row>
-    <el-row class="row">
-      <!-- 我的试用 -->
-      <el-card class="card card-1">
-        <div slot="header" class="clearfix">
-          <span>我的试用</span>
-          <el-button style="float: right; padding: 3px 0" type="text">
-            管理全部
-            <svg-icon icon-class="arrow-right" />
-          </el-button>
-        </div>
-        <div class="icons">
-          <div class="item">
-            <img src="@/assets/icons/deal-4.png" alt="">
-            <div>未处理的申请<el-button type="text">5</el-button>
-            </div>
-          </div>
-          <div class="item">
-            <img src="@/assets/icons/deal-4.png" alt="">
-            <div>试用中的产品<el-button type="text">5</el-button>
-            </div>
-          </div>
-          <div class="item">
-            <img src="@/assets/icons/deal-4.png" alt="">
-            <div>待评价的试用<el-button type="text">5</el-button>
-            </div>
-          </div>
-          <div class="item">
-            <img src="@/assets/icons/deal-4.png" alt="">
-            <div>已评价的试用<el-button type="text">5</el-button>
-            </div>
+    <!-- 我的试用 -->
+    <el-card class="card card-1">
+      <div slot="header" class="clearfix">
+        <span>我的试用</span>
+        <el-button style="float: right; padding: 3px 0" type="text">
+          管理全部<i class="el-icon-setting" />
+        </el-button>
+      </div>
+      <div class="icons">
+        <div class="item">
+          <img src="@/assets/icons/deal-4.png" alt="">
+          <div>未处理的申请<el-button type="text">5</el-button>
           </div>
         </div>
-      </el-card>
+        <div class="item">
+          <img src="@/assets/icons/deal-4.png" alt="">
+          <div>试用中的产品<el-button type="text">5</el-button>
+          </div>
+        </div>
+        <div class="item">
+          <img src="@/assets/icons/deal-4.png" alt="">
+          <div>待评价的试用<el-button type="text">5</el-button>
+          </div>
+        </div>
+        <div class="item">
+          <img src="@/assets/icons/deal-4.png" alt="">
+          <div>已评价的试用<el-button type="text">5</el-button>
+          </div>
+        </div>
+      </div>
+    </el-card>
 
-      <!-- 我的发布 -->
-      <el-card class="card card-2">
-        <div slot="header" class="clearfix">
-          <span>我的发布</span>
-          <el-button style="float: right; padding: 3px" type="text">
-            管理全部<i class="el-icon-setting" />
-          </el-button>
-          <el-button style="float: right; padding: 3px" type="text">
-            发布<i class="el-icon-upload2" />
-          </el-button>
-        </div>
-        <div class="videos">
-          <el-card
-            v-for="item in contentData"
-            :key="item.id"
-            class="video-card"
-            :body-style="{ padding: '0px' }"
-          >
-            <VideoItem :content="item" />
-            <div class="info">
-              <span>产品名称（机器人）</span>
-              <div class="bottom">
-                <div>
-                  <el-button type="text">编辑</el-button>
-                  <el-button type="text">查看详情</el-button>
-                </div>
-                <i class="el-icon-delete" />
+    <!-- 我的发布 -->
+    <el-card class="card card-2">
+      <div slot="header" class="clearfix">
+        <span>我的发布</span>
+        <el-button style="float: right; padding: 3px" type="text">
+          管理全部<i class="el-icon-setting" />
+        </el-button>
+        <el-button style="float: right; padding: 3px" type="text">
+          发布<i class="el-icon-upload2" />
+        </el-button>
+      </div>
+      <div class="videos">
+        <el-card
+          v-for="item in contentData"
+          :key="item.id"
+          class="video-card"
+          :body-style="{ padding: '0px' }"
+        >
+          <VideoItem :content="item" />
+          <div class="info">
+            <span>产品名称（机器人）</span>
+            <div class="bottom">
+              <div>
+                <el-button type="text">编辑</el-button>
+                <el-button type="text">查看详情</el-button>
               </div>
+              <i class="el-icon-delete" />
             </div>
-          </el-card>
+          </div>
+        </el-card>
+      </div>
+      <div class="btn">
+        <span class="grey"><i class="el-icon-setting" /> 管理更多</span>
+      </div>
+    </el-card>
+
+    <!-- 数据中心 -->
+    <el-card class="card card-5">
+      <div slot="header" class="clearfix">
+        <span>数据中心</span>
+        <el-button style="float: right; padding: 3px 0" type="text">
+          管理全部<i class="el-icon-setting" />
+        </el-button>
+      </div>
+      <div class="btn">
+        <span class="red">当日数据</span>
+      </div>
+      <div class="charts">
+        <div class="item">
+          <div class="title">
+            <span class="red">0</span>
+            <p>访客数</p>
+          </div>
+          <div id="chart1" style="width: 100%; height: 200px;" />
         </div>
-      </el-card>
-    </el-row>
+        <div class="item">
+          <div class="title">
+            <span class="red">0</span>
+            <p>主页浏览量</p>
+          </div>
+          <div id="chart2" style="width: 100%; height: 200px;" />
+        </div>
+        <div class="item">
+          <div class="title">
+            <span class="red">0</span>
+            <p>产品浏览量</p>
+          </div>
+          <div id="chart3" style="width: 100%; height: 200px;" />
+        </div>
+        <div class="item">
+          <div class="title">
+            <span class="red">0</span>
+            <p>支付买家数</p>
+          </div>
+          <div id="chart4" style="width: 100%; height: 200px;" />
+        </div>
+      </div>
+      <div class="bot">
+        <div class="cell">
+          <svg-icon icon-class="store" class="icon" />
+          <div class="rgt">
+            <p class="title">爆款商品</p>
+            <p>昨天浏览量Top1的商品是扫地机器人</p>
+          </div>
+        </div>
+        <div class="cell">
+          <svg-icon icon-class="store" class="icon" />
+          <div class="rgt">
+            <p class="title">店铺概况</p>
+            <p>店铺今日浏览量排行第10033名，较前日上涨44名</p>
+          </div>
+        </div>
+        <div class="cell">
+          <svg-icon icon-class="store" class="icon" />
+          <div class="rgt">
+            <p class="title">数据异常</p>
+            <p>今日暂无数据异常</p>
+          </div>
+        </div>
+        <div class="cell">
+          <svg-icon icon-class="store" class="icon" />
+          <div class="rgt">
+            <p class="title">核心流量</p>
+            <p>昨日引流的Top1流量来源是浙江省</p>
+          </div>
+        </div>
+      </div>
+    </el-card>
+
   </div>
 </template>
 <script>
 import VideoItem from './../components/VideoItem'
+import echarts from 'echarts'
 
 export default {
   components: {
@@ -158,8 +233,39 @@ export default {
           id: 2,
           title: '您有2张优惠券到账啦，快进来看看吧！'
         }
-      ]
+      ],
+      option1: {
+        xAxis: {
+          type: 'category',
+          boundaryGap: false,
+          data: ['0', '8', '16', '24']
+        },
+        yAxis: {
+          show: false
+        },
+        series: [
+          {
+            name: '访客数',
+            type: 'line',
+            stack: '总量',
+            data: [1, 0, 0, 0]
+          }
+        ]
+      }
     }
+  },
+  mounted() {
+    const Chart1 = echarts.init(document.getElementById('chart1'))
+    Chart1.setOption(this.option1)
+
+    const Chart2 = echarts.init(document.getElementById('chart2'))
+    Chart2.setOption(this.option1)
+
+    const Chart3 = echarts.init(document.getElementById('chart3'))
+    Chart3.setOption(this.option1)
+
+    const Chart4 = echarts.init(document.getElementById('chart4'))
+    Chart4.setOption(this.option1)
   }
 }
 </script>
@@ -200,6 +306,7 @@ export default {
     }
   }
   .money {
+    width: 130px;
     .num {
       font-weight: 600;
     }
@@ -260,6 +367,61 @@ export default {
   .video-card {
     width: 210px;
     margin-bottom: 15px;
+  }
+}
+.card-5 {
+  .charts {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #f0f0f0;
+    .item {
+      width: 20%;
+    }
+    .title {
+      text-align: center;
+      .red {
+        color: crimson;
+      }
+      p {
+        margin: 5px 0;
+      }
+    }
+  }
+  .bot {
+    display: flex;
+    flex-wrap: wrap;
+    .cell {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      height: 80px;
+      .icon {
+        font-size: 40px;
+        margin-right: 10px;
+      }
+      .title {
+        font-size: 18px;
+      }
+      p {
+        margin: 5px 0;
+      }
+    }
+  }
+}
+
+.btn {
+  text-align: center;
+  margin: 20px 0;
+  .grey {
+    padding: 5px 10px;
+    background: #f0f0f0;
+  }
+  .red {
+    padding: 5px 15px;
+    background: rgb(175, 64, 58);
+    color: #fff;
+    border-radius: 5px;
+    font-size: 15px;
   }
 }
 </style>

@@ -59,7 +59,7 @@ export default {
   background-image: url(../assets/pics/login.png);
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 100% 100%;
+  background-size: cover;
 }
 .box {
   width: 420px;
@@ -67,8 +67,8 @@ export default {
   background: #fff;
   border: 10px solid rgba($color: #000000, $alpha: 0.1);
   position: absolute;
-  right: 425px;
-  top: 166px;
+  right: 15%;
+  top: 20%;
   padding: 40px 40px 0 40px;
   .title {
     font-weight: 600;
