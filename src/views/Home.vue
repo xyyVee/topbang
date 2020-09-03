@@ -1,7 +1,8 @@
 <template>
   <div class="home">
-    <Header />
-    <NavSticky :sticky="430" :hide="true" />
+    <Header class="fix-header"/>
+    <NavSticky :sticky="1280" :top="53" :hide="true" />
+    <Main />
     <div class="banner">
       <div class="menu">
         <div class="list">
@@ -211,6 +212,7 @@ import Nav from '@/components/Nav'
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import VideoItemHome from './components/VideoItemHome'
 import LiveItemHome from './components/LiveItemHome'
+import Main from './Main'
 
 import 'swiper/css/swiper.min.css'
 import NavSticky from '@/components/NavSticky'
@@ -224,7 +226,8 @@ export default {
     VideoItemHome,
     LiveItemHome,
     NavSticky,
-    Nav
+    Nav,
+    Main
   },
   data() {
     return {
@@ -289,7 +292,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style>
 .swiper-pagination-bullet {
   background: #fff;
   opacity: 1;
@@ -299,6 +302,13 @@ export default {
   height: 8px;
   border-radius: 3px;
 }
+</style>
+<style lang="scss" scoped>
+
+.fix-header {
+  position: fixed;
+  top: 0;
+}
 .home {
   position: relative;
   // background: #F2F2F2;
@@ -306,10 +316,10 @@ export default {
   .banner {
     width: 100vw;
     overflow: hidden;
-    background: url(./../assets/pics/banner2.jpg) no-repeat;
-    background-position-x: center;
-    background-position-y: top;
-    background-size: 1920px;
+    // background: url(./../assets/pics/banner2.jpg) no-repeat;
+    // background-position-x: center;
+    // background-position-y: top;
+    // background-size: 1920px;
   }
   .search {
     position: absolute;

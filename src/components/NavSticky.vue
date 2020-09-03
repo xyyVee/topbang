@@ -1,6 +1,6 @@
 <template>
   <div class="nav-sticky">
-    <div class="sticky" :class="{'sticky-pos': stickyEnabled, 'hidden': hide}">
+    <div class="sticky" :class="{'sticky-pos': stickyEnabled, 'hidden': hide}" :style="{top: top + 'px'}">
       <div class="main">
         <div class="industry" :class="{'expand-active': expand}" @click="expandList">
             <svg-icon class="nav-icon" icon-class="list" />
@@ -42,6 +42,10 @@ export default {
   props: {
     // 滚动到多少距离吸顶
     sticky: {
+      type: Number,
+      default: 0
+    },
+    top: {
       type: Number,
       default: 0
     },
