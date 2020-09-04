@@ -12,12 +12,12 @@
       </div>
       <div class="videos">
         <div
-          v-for="item in contentData"
-          :key="item.id"
+          v-for="(item,index) in contentData"
+          :key="index"
           class="video-card"
           :body-style="{ padding: '0px' }"
         >
-          <i v-if="isDel" class="el-icon-delete-solid" />
+          <i v-if="isDel" class="el-icon-delete-solid" @click="handleClick(index)" />
           <VideoItem :content="item" :show-bottom="true" :bottom-style="2" />
         </div>
       </div>
@@ -71,6 +71,9 @@ export default {
   methods: {
     handleDel() {
       this.isDel = !this.isDel
+    },
+    handleClick(i) {
+      this.contentData.splice(i, 1)
     }
   }
 }
@@ -98,7 +101,7 @@ export default {
     .video-card {
       margin: 0 20px 20px 0;
       position: relative;
-      .el-icon-delete-solid{
+      .el-icon-delete-solid {
         position: absolute;
         top: 0;
         right: 0;

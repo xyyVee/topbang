@@ -6,17 +6,17 @@
       </div>
       <div class="header">
         <div class="grey">统计时间 2020-08-26 15:26:13</div>
-        <el-tabs v-model="value1" type="card">
-          <el-tab-pane label="实时" name="first" />
-          <el-tab-pane label="1日" name="second" />
-          <el-tab-pane label="1周" name="third" />
-          <el-tab-pane label="1月" name="fourth" />
+        <el-tabs v-model="value1" type="card" @tab-click="handleTab">
+          <el-tab-pane label="实时" name="1" />
+          <el-tab-pane label="1日" name="2" />
+          <el-tab-pane label="1周" name="3" />
+          <el-tab-pane label="1月" name="4" />
         </el-tabs>
       </div>
       <div class="content">
         <div class="title">数据总览</div>
         <div class="cards">
-          <div v-for="item in list1" :key="item.id" class="card-1">
+          <div v-for="item in list1" :key="item.id" class="card-1" :class="[active===item.id?'active':'']" @click="handleClick(item)">
             <div class="top">{{ item.title }}</div>
             <div class="row">
               <span class="grey">{{ item.sub1 }}</span>
@@ -27,7 +27,7 @@
               <span><i class="el-icon-top red" />{{ item.num2 }}</span>
             </div>
           </div>
-          <div v-for="item in list2" :key="item.id" class="card-2">
+          <div v-for="item in list2" :key="item.id" class="card-2" :class="[active===item.id?'active':'']" @click="handleClick(item)">
             <div class="top">{{ item.title }}</div>
             <div class="bold">{{ item.num1 }}</div>
             <div class="row">
@@ -156,17 +156,18 @@ import echarts from 'echarts'
 export default {
   data() {
     return {
-      value1: 'first',
+      value1: '1',
       value2: '',
+      active: 0,
       list1: [
-        { id: 1, title: '访问主页', sub1: '访客数', sub2: '较前日同时段', num1: 123, num2: 11 },
-        { id: 2, title: '访问产品', sub1: '商品访客数', sub2: '较前日同时段', num1: 123, num2: 22 },
-        { id: 3, title: '访问主页', sub1: '试用人数', sub2: '较前日同时段', num1: 23, num2: 1 }
+        { id: 0, title: '访问主页', sub1: '访客数', sub2: '较前日同时段', num1: 111, num2: 11 },
+        { id: 1, title: '访问产品', sub1: '商品访客数', sub2: '较前日同时段', num1: 111, num2: 11 },
+        { id: 2, title: '访问主页', sub1: '试用人数', sub2: '较前日同时段', num1: 111, num2: 1 }
       ],
       list2: [
-        { id: 4, title: '访客数', sub1: '较前日同时段', num1: 123, num2: 11 },
-        { id: 5, title: '浏览量', sub1: '较前日同时段', num1: 123, num2: 11 },
-        { id: 6, title: '人均浏览量', sub1: '较前日同时段', num1: 123, num2: 11 }
+        { id: 3, title: '访客数', sub1: '较前日同时段', num1: 123, num2: 11 },
+        { id: 4, title: '浏览量', sub1: '较前日同时段', num1: 123, num2: 11 },
+        { id: 5, title: '人均浏览量', sub1: '较前日同时段', num1: 123, num2: 11 }
       ],
       data1: [
         { name: '页面搜索', num: 40 },
@@ -225,6 +226,39 @@ export default {
           }
         ]
       },
+      option: {},
+      option0: {
+        tooltip: {
+          trigger: 'axis'
+        },
+        legend: {
+          data: ['昨日访客数', '今日访客数']
+        },
+        xAxis: {
+          type: 'category',
+          boundaryGap: false,
+          data: ['00:00', '02:00', '04:00', '06:00', '08:00', '10:00', '12:00']
+        },
+        yAxis: {
+          type: 'value'
+        },
+        series: [
+          {
+            name: '昨日访客数',
+            type: 'line',
+            stack: '总量',
+            smooth: true,
+            data: [120, 132, 101, 300, 90, 230, 210]
+          },
+          {
+            name: '今日访客数',
+            type: 'line',
+            smooth: true,
+            stack: '总量',
+            data: [820, 932, 901, 100, 1290, 1330, 1320]
+          }
+        ]
+      },
       option2: {
         tooltip: {
           trigger: 'axis'
@@ -249,12 +283,40 @@ export default {
     }
   },
   mounted() {
-    const Chart1 = echarts.init(document.getElementById('chart1'))
-    Chart1.setOption(this.option1)
-    const Chart2 = echarts.init(document.getElementById('chart2'))
-    Chart2.setOption(this.option2)
+    this.option = this.option0
+    this.Chart1 = echarts.init(document.getElementById('chart1'))
+    this.Chart1.setOption(this.option)
+    this.Chart2 = echarts.init(document.getElementById('chart2'))
+    this.Chart2.setOption(this.option2)
   },
   methods: {
+    handleTab() {
+      if (this.value1 === '1') {
+        this.list1 = [
+          { id: 0, title: '访问主页', sub1: '访客数', sub2: '较前日同时段', num1: 111, num2: 11 },
+          { id: 1, title: '访问产品', sub1: '商品访客数', sub2: '较前日同时段', num1: 111, num2: 11 },
+          { id: 2, title: '访问主页', sub1: '试用人数', sub2: '较前日同时段', num1: 111, num2: 1 }
+        ]
+      } else {
+        this.list1 = [
+          { id: 0, title: '访问主页', sub1: '访客数', sub2: '较前日同时段', num1: 222, num2: 11 },
+          { id: 1, title: '访问产品', sub1: '商品访客数', sub2: '较前日同时段', num1: 222, num2: 11 },
+          { id: 2, title: '访问主页', sub1: '试用人数', sub2: '较前日同时段', num1: 222, num2: 1 }
+        ]
+      }
+    },
+    handleClick(item) {
+      if (item.id === 1 || item.id === 3) {
+        this.option = this.option0
+      } else {
+        this.option = this.option1
+      }
+      this.active = item.id
+      this.option.legend.data = [`今日${item.title}`, `昨日${item.title}`]
+      this.option.series[0].name = `今日${item.title}`
+      this.option.series[1].name = `昨日${item.title}`
+      this.Chart1.setOption(this.option)
+    }
   }
 }
 </script>
@@ -341,6 +403,9 @@ export default {
     width: 200px;
     padding: 15px 20px;
     margin: 0 20px 20px 0;
+  }
+  .active{
+    border-bottom: 2px solid crimson;
   }
 }
 </style>

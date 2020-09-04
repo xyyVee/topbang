@@ -6,13 +6,13 @@
       </div>
       <!-- 筛选区域 -->
       <el-row class="header">
-        <el-tabs>
-          <el-tab-pane>
+        <el-tabs v-model="activeName" @tab-click="handleClick">
+          <el-tab-pane name="1">
             <span slot="label">
               待评价订单<sup class="badge">1</sup>
             </span>
           </el-tab-pane>
-          <el-tab-pane label="已评价" />
+          <el-tab-pane label="已评价" name="2" />
         </el-tabs>
       </el-row>
       <div class="label">
@@ -33,13 +33,25 @@
             </div>
             <div class="col-2">{{ item.company }}<i class="el-icon-chat-dot-round" /></div>
             <div class="col-3">
-              <el-button type="primary" size="mini" plain>评价</el-button>
+              <el-button type="primary" size="mini" plain @click="dialogVisible = true">评价</el-button>
               <div class="grey">项目详情</div>
             </div>
           </div>
         </div>
       </div>
     </el-card>
+
+    <el-dialog title="评价" :visible.sync="dialogVisible">
+      <el-form>
+        <el-form-item>
+          <el-input />
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="dialogVisible = false">取 消</el-button>
+        <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 <script>
@@ -49,16 +61,34 @@ export default {
       value1: '',
       value2: '',
       options: [],
-      list: [
+      list: [],
+      list1: [
         { time: '2020-08-06 17:15:48', num: 12990756523, src: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg', title: '扫地机器人1C智能家用全自动扫拖一体机拖地吸尘器三合一', company: '杭州域加网络科技有限公司', status: 1 },
         { time: '2020-08-06 17:15:48', num: 12990756523, src: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg', title: '扫地机器人1C智能家用全自动扫拖一体机拖地吸尘器三合一', company: '杭州域加网络科技有限公司', status: 2 },
         { time: '2020-08-06 17:15:48', num: 12990756523, src: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg', title: '扫地机器人1C智能家用全自动扫拖一体机拖地吸尘器三合一', company: '杭州域加网络科技有限公司', status: 3 }
+      ],
+      list2: [
+        { time: '2020-08-06 17:15:48', num: 12990756523, src: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg', title: '扫地机器人1C智能家用全自动扫拖一体机拖地吸尘器三合一', company: '杭州域加网络科技有限公司', status: 1 }
       ],
       statusMap: {
         1: '试用中',
         2: '待评价',
         3: '已试用',
         4: '申请中'
+      },
+      activeName: '1',
+      dialogVisible: false
+    }
+  },
+  created() {
+    this.list = this.list1
+  },
+  methods: {
+    handleClick() {
+      if (this.activeName === '1') {
+        this.list = this.list1
+      } else {
+        this.list = this.list2
       }
     }
   }

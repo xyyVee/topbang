@@ -63,11 +63,11 @@
               <div class="grey">视频详情</div>
             </div>
             <div class="col-4">
-              <el-button v-if="item.status===1" type="text">取消发布</el-button>
-              <el-button v-if="item.status===4" type="text">重新发布</el-button>
-              <el-button v-if="item.status===3||item.status===4" type="text">重新编辑</el-button>
-              <el-button v-if="item.status===2" type="text">下架视频</el-button>
-              <el-button type="text">删除视频</el-button>
+              <el-button v-if="item.status===1" type="text" @click="handleClick('取消发布')">取消发布</el-button>
+              <el-button v-if="item.status===4" type="text" @click="handleClick('重新发布')">重新发布</el-button>
+              <el-button v-if="item.status===3||item.status===4" type="text" @click="handleClick('重新编辑')">重新编辑</el-button>
+              <el-button v-if="item.status===2" type="text" @click="handleClick('下架视频')">下架视频</el-button>
+              <el-button type="text" @click="handleClick('删除视频')">删除视频</el-button>
             </div>
           </div>
         </div>
@@ -94,6 +94,15 @@ export default {
         3: '审核失败',
         4: '已下架'
       }
+    }
+  },
+  methods: {
+    handleClick(text) {
+      this.$confirm(`确认${text}？`, '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      })
     }
   }
 }

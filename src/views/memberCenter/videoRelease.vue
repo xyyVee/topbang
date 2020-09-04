@@ -6,7 +6,8 @@
       </div>
       <el-form ref="form" class="form" :model="form" label-width="80px" label-position="top">
         <el-form-item label="">
-          <div class="label">文件上传<span class="grey">（推荐采用mp4、flv格式可有效缩短审核转码耗时）</span></div>
+          <div class="label">文件上传 <span class="grey">当前可上传视频数量 <span class="red">5/10</span></span>
+          </div>
           <el-upload
             class="upload-demo"
             action="https://jsonplaceholder.typicode.com/posts/"
@@ -17,18 +18,22 @@
             list-type="picture"
             :limit="10"
           >
-            <el-button slot="trigger" type="danger">{{ fileList.length>0?'继续上传':'点击上传' }}</el-button>
+            <el-button slot="trigger" type="danger">
+              <i class="el-icon-upload2" />
+              {{ fileList.length>0?'继续上传':'上传视频' }}
+            </el-button>
+            <span class="grey">（视频时长在一分钟内，推荐采用mp4、flv格式可有效缩短审核转码耗时）</span>
           </el-upload>
         </el-form-item>
         <el-form-item label="基本信息">
-
+          <div class="grey">视频封面设置（视频封面设置（格式jpeg、png，文件大小小于5MB）</div>
           <el-upload
             class="avatar-uploader"
             action="https://jsonplaceholder.typicode.com/posts/"
             :show-file-list="false"
           >
             <img v-if="imageUrl" :src="imageUrl" class="avatar">
-            <i v-else class="el-icon-plus avatar-uploader-icon" />
+            <i v-else class="el-icon-picture-outline avatar-uploader-icon" />
           </el-upload>
         </el-form-item>
 
@@ -58,27 +63,30 @@
         </el-form-item>
 
         <el-form-item label="标签">
-          <el-input
-            v-if="inputVisible"
-            ref="saveTagInput"
-            v-model="inputValue"
-            class="input-new-tag"
-            size="small"
-            placeholder="每个标签之间用；隔开"
-            @keyup.enter.native="handleInputConfirm"
-            @blur="handleInputConfirm"
-          />
-          <el-button v-else class="button-new-tag" size="small" @click="showInput">+新标签</el-button>
+          <div class="inputTags">
+            <span v-if="!inputTags.length" class="placeholder">每个标签之间用；隔开</span>
+
+            <el-tag
+              v-for="tag in inputTags"
+              :key="tag"
+              class="tag"
+              effect="plain"
+              type="info"
+              size="mini"
+              closable
+              @close="handleClose(tag)"
+            >
+              {{ tag }}
+            </el-tag>
+          </div>
           <span>推荐标签</span>
           <el-tag
             v-for="tag in dynamicTags"
             :key="tag"
             class="tag"
-            closable
-            :disable-transitions="false"
             effect="plain"
             type="info"
-            @close="handleClose(tag)"
+            @click="handleAdd(tag)"
           >
             {{ tag }}
           </el-tag>
@@ -124,6 +132,7 @@ export default {
   },
   data() {
     return {
+      inputTags: [],
       dynamicTags: ['人工智能', '扫地机器人', '家电'],
       inputVisible: true,
       inputValue: '',
@@ -141,23 +150,12 @@ export default {
   },
   methods: {
     handleClose(tag) {
+      this.inputTags.splice(this.inputTags.indexOf(tag), 1)
+      this.dynamicTags.splice(0, 0, tag)
+    },
+    handleAdd(tag) {
+      this.inputTags.splice(0, 0, tag)
       this.dynamicTags.splice(this.dynamicTags.indexOf(tag), 1)
-    },
-
-    showInput() {
-      this.inputVisible = true
-      this.$nextTick(_ => {
-        this.$refs.saveTagInput.$refs.input.focus()
-      })
-    },
-
-    handleInputConfirm() {
-      const inputValue = this.inputValue
-      if (inputValue) {
-        this.dynamicTags.push(inputValue)
-      }
-      this.inputVisible = false
-      this.inputValue = ''
     },
     handleRemove(file, fileList) {
       console.log(file, fileList)
@@ -181,6 +179,14 @@ export default {
   .tag {
     margin: 0 10px;
   }
+  .red {
+    color: #f56c6c;
+  }
+  .grey {
+    font-size: 12px;
+    font-weight: 500;
+    color: #999;
+  }
 }
 .form {
   margin-top: 20px;
@@ -189,11 +195,6 @@ export default {
     font-size: 14px;
     font-weight: 700;
     color: #606266;
-    .grey {
-      font-size: 12px;
-      font-weight: 500;
-      color: #999;
-    }
   }
   .el-select {
     margin-right: 20px;
@@ -206,15 +207,35 @@ export default {
 .avatar-uploader-icon {
   font-size: 28px;
   color: #8c939d;
-  width: 178px;
-  height: 178px;
-  line-height: 178px;
+  width: 150px;
+  height: 150px;
+  line-height: 150px;
   text-align: center;
 }
 .avatar {
-  width: 178px;
-  height: 178px;
+  width: 150px;
+  height: 150px;
   display: block;
+}
+.inputTags {
+  background-color: #fff;
+  background-image: none;
+  border-radius: 4px;
+  border: 1px solid #dcdfe6;
+  box-sizing: border-box;
+  color: #606266;
+  display: inline-block;
+  font-size: inherit;
+  height: 40px;
+  line-height: 40px;
+  outline: 0;
+  padding: 0 15px;
+  transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  width: 100%;
+  margin: 0 0 10px 0;
+  .placeholder{
+    color: #999;
+  }
 }
 </style>
 <style>

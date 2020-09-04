@@ -1,10 +1,16 @@
 <template>
   <div class="app">
     <Header />
-    <div class="container">
-      <SideBar />
-      <!-- 嵌套的子路由 -->
-      <router-view />
+    <div class="main">
+      <div class="container">
+        <SideBar />
+        <!-- 嵌套的子路由 -->
+        <router-view />
+      </div>
+      <div class="footer">
+        <div class="text">关于我们 |  服务声明 | 加入我们 | 联系我们 | 合作伙伴计划 | 常见问题 | 网站导航 | 商家认证 | 客服中心</div>
+        <div class="text">Copyright ©2004-2020 TOP帮版权所有</div>
+      </div>
     </div>
   </div>
 </template>
@@ -37,17 +43,30 @@ export default {
     padding-top: 20px;
   }
 }
+
+.main {
+  .footer {
+    font-size: 15px;
+    padding: 50px 0 30px 0;
+    background: #fff;
+    .text {
+      line-height: 2;
+      text-align: center;
+      color: #888;
+    }
+  }
+}
 </style>
 <style lang="scss">
 .bg-2 {
   background: url(../../assets/center/bg-2.png) no-repeat;
-  background-size: cover;
+  background-size: 100% auto;
   background-color: #fff;
   background-position: center;
 }
 .bg-1 {
   background: url(../../assets/center/bg-1.png) no-repeat;
-  background-size: contain;
+  background-size: auto 80%;
   background-color: #fff;
   background-position-x: right;
   background-position-y: center;

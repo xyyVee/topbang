@@ -6,7 +6,7 @@
         <svg-icon icon-class="arrow-down" />所有消息
       </div>
       <div class="list">
-        <div v-for="(item,index) in list" :key="index" class="cell">
+        <div v-for="(item,index) in list" :key="index" class="cell" @click="handleClick(index)">
           <i class="el-icon-message" :class="[item.status?'read':'unread']" />
           <div>
             <span class="title">{{ item.title }}</span>
@@ -29,6 +29,11 @@ export default {
         { title: '退款申请已通过', time: '2020-03-02 13:59:20', text: '尊敬的用户，您提交的退款申请已通过，需扣除手续费0元，可退金额100元。退款将在3-7天内退回账号余额', status: 1 },
         { title: '退款申请已通过', time: '2020-03-02 13:59:20', text: '尊敬的用户，您提交的退款申请已通过，需扣除手续费0元，可退金额100元。退款将在3-7天内退回账号余额', status: 1 }
       ]
+    }
+  },
+  methods: {
+    handleClick(index) {
+      this.list[index].status = 0
     }
   }
 }
