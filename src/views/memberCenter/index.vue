@@ -36,6 +36,7 @@ export default {
   background: #f0f0f0;
   .container {
     display: flex;
+    justify-content: center;
     margin-top: 90px;
     padding-top: 20px;
   }
