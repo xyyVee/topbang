@@ -111,6 +111,7 @@ export default {
 .sideBar {
   width: 200px;
   margin: 0 30px 30px 0;
+  display: inline-block;
   .item {
     display: block;
     padding: 0 40px;

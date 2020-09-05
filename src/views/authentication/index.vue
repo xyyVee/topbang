@@ -132,7 +132,7 @@ export default {
 <style lang="scss" scoped>
 .app {
   background: #f0f0f0;
-  width: 100%;
+  min-width: 1200px;
   height: 100%;
   overflow-y: scroll;
   .container {
@@ -188,7 +188,7 @@ export default {
     margin: 5px 0;
     line-height: 1.5;
   }
-  .dialog-footer{
+  .dialog-footer {
     display: flex;
     flex-direction: column;
     align-items: center;

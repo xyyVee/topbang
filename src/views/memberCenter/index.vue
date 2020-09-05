@@ -5,10 +5,10 @@
       <div class="container">
         <SideBar />
         <!-- 嵌套的子路由 -->
-        <router-view />
+        <router-view class="right-container" />
       </div>
       <div class="footer">
-        <div class="text">关于我们 |  服务声明 | 加入我们 | 联系我们 | 合作伙伴计划 | 常见问题 | 网站导航 | 商家认证 | 客服中心</div>
+        <div class="text">关于我们 | 服务声明 | 加入我们 | 联系我们 | 合作伙伴计划 | 常见问题 | 网站导航 | 商家认证 | 客服中心</div>
         <div class="text">Copyright ©2004-2020 TOP帮版权所有</div>
       </div>
     </div>
@@ -32,15 +32,14 @@ export default {
 
 <style lang="scss" scoped>
 .app {
+  min-width: 1200px;
   background: #f0f0f0;
-  height: 100%;
-  overflow: scroll;
   .container {
     display: flex;
-    height: 100%;
-    justify-content: center;
     margin-top: 90px;
     padding-top: 20px;
+    .right-container {
+      overflow: scroll;    }
   }
 }
 
@@ -59,6 +58,7 @@ export default {
 </style>
 <style lang="scss">
 .bg-2 {
+  min-width: 1000px;
   background: url(../../assets/center/bg-2.png) no-repeat;
   background-size: 100% auto;
   background-color: #fff;

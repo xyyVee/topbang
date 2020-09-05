@@ -54,7 +54,7 @@ export default {
 
 <style lang="scss" scoped>
 .main {
-  width: 100%;
+  min-width: 1200px;
   height: 100vh;
   background-image: url(../assets/pics/login.png);
   background-repeat: no-repeat;
@@ -62,12 +62,12 @@ export default {
   background-size: cover;
 }
 .box {
-  width: 420px;
+  max-width: 420px;
   height: 410px;
   background: #fff;
   border: 10px solid rgba($color: #000000, $alpha: 0.1);
   position: absolute;
-  right: 15%;
+  right: 10%;
   top: 20%;
   padding: 40px 40px 0 40px;
   .title {
@@ -116,7 +116,7 @@ export default {
   width: 100%;
   text-align: center;
   position: fixed;
-  bottom: 20%;
+  bottom: 10%;
   color: #666666;
   .big{
     font-size: 17px;
