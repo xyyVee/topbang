@@ -377,7 +377,7 @@ export default {
     height: 348px;
     background: #ffffff;
     margin: 0 auto;
-    margin-top: 137px;
+    margin-top: 60px;
     .list {
       width: 161px;
       height: 348px;

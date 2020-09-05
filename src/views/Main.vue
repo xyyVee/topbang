@@ -40,7 +40,7 @@
 .main-page {
   position: relative;
   min-width: 1200px;
-  overflow: auto;
+  overflow-x: auto;
   // height: 54px;
   height: 780px;
   background: #ffffff;

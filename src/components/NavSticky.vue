@@ -1,5 +1,5 @@
 <template>
-  <div class="nav-sticky">
+  <div class="nav-sticky" id="expandList">
     <div class="sticky" :class="{'sticky-pos': stickyEnabled, 'hidden': hide}" :style="{top: top + 'px'}">
       <div class="main">
         <div class="industry" :class="{'expand-active': expand}" @click="expandList">
@@ -57,6 +57,10 @@ export default {
   },
   mounted () {
     window.addEventListener('scroll', this.handleScroll)
+    window.addEventListener('click', this.clickClose)
+    document.getElementById('expandList').addEventListener('click',(e) =>{ 
+      e.stopPropagation()
+    })
   },
   data() {
     return {
@@ -203,12 +207,12 @@ export default {
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.handleScroll)
+    window.removeEventListener('click', this.clickClose)
   },
   methods: {
     handleScroll() {
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
       if (scrollTop > this.sticky) {
-        console.log('sticky')
         this.stickyEnabled = true
       } else {
         this.stickyEnabled = false
@@ -220,6 +224,9 @@ export default {
     },
     expandList() {
       this.expand = !this.expand
+    },
+    clickClose(e) {
+      this.expand = false
     }
   }
 }

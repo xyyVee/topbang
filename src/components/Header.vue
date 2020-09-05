@@ -74,10 +74,11 @@
     position: absolute;
     top: 0;
     left: 0;
-    min-width: 1200px;
+    width: 100%;
     height: 54px;
     background: #ffffff;
     z-index: 4;
+    overflow-x: auto;
     .header {
         position: relative;
         width: 988px;
