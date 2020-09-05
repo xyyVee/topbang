@@ -38,8 +38,6 @@ export default {
     display: flex;
     margin-top: 90px;
     padding-top: 20px;
-    .right-container {
-      overflow: scroll;    }
   }
 }
 
