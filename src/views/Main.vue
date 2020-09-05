@@ -18,6 +18,10 @@
       <div class="hot-words">
         热门搜索 ：<span v-for="(word, index) in words" :key="index" class="word">{{ word }}</span>
       </div>
+      <div class="bottom">
+        <div class="top1">Topb100.com</div>
+         <div>TOP帮Copyright ©2020 北京TOP帮有限公司版权所有</div>
+      </div>
     </div>
   </div>
 </template>
@@ -34,7 +38,9 @@
 
 <style lang="scss" scoped>
 .main-page {
-  width: 100%;
+  position: relative;
+  min-width: 1200px;
+  overflow: auto;
   // height: 54px;
   height: 780px;
   background: #ffffff;
@@ -77,10 +83,11 @@
     }
   }
   .search-group {
-    width: 100vw;
+    position: relative;
+    min-width: 1200px;
     height: 100vh;
     overflow: hidden;
-    background: url(../assets/pics/home1.png) no-repeat;
+    background: url(../assets/pics/home1.jpg) no-repeat;
     background-position-x: center;
     background-position-y: top;
     background-size: 1920px;
@@ -88,9 +95,8 @@
   .search {
     position: absolute;
     width: 710px;
-    top: 535px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 540px;
+    left: 250px;
     .input {
       width: 600px;
       height: 51px;
@@ -121,10 +127,9 @@
   .hot-words {
     position: absolute;
     top: 601px;
-    left: 50%;
+    left: 156px;
     color: #666666;
     font-size: 20px;
-    transform: translateX(-50%);
     z-index: 2;
     width: 800px;
     text-align: center;
@@ -132,6 +137,18 @@
       // color: rgba(255,255,255,.8);
       margin-right: 20px;
       // font-size: 18px;
+    }
+  }
+  .bottom {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px;
+    text-align: center;
+    font-size: 12px;
+    color: #999999;
+    .top1 {
+      letter-spacing: 2px;
     }
   }
 }
