@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Header class="fix-header"/>
+    <Header class="fix-header" :show-search="1280" />
     <NavSticky :sticky="1280" :top="53" :hide="true" />
     <Main />
     <div class="banner">
@@ -314,8 +314,8 @@ export default {
   // background: #F2F2F2;
   background: #ffffff;
   .banner {
-    width: 100vw;
-    overflow: hidden;
+    min-width: 1200px;
+    overflow: auto;
     // background: url(./../assets/pics/banner2.jpg) no-repeat;
     // background-position-x: center;
     // background-position-y: top;
@@ -546,7 +546,7 @@ export default {
 }
 .list-content {
   position: absolute;
-  width: 1200px;
+  min-width: 1200px;
   height: 370px;
   top: -13px;
   left: 13px;
