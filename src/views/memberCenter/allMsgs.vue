@@ -7,7 +7,7 @@
       </div>
       <div class="list">
         <div v-for="(item,index) in list" :key="index" class="cell" @click="handleClick(index)">
-          <i class="el-icon-message" :class="[item.status?'read':'unread']" />
+          <i class="el-icon-message" :class="[!item.status?'read':'unread']" />
           <div>
             <span class="title">{{ item.title }}</span>
             <span class="grey">{{ item.time }}</span>

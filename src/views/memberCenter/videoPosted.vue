@@ -8,15 +8,15 @@
       <el-row class="header">
         <el-col :span="14">
 
-          <el-tabs>
-            <el-tab-pane label="全部视频" />
-            <el-tab-pane label="审核中" />
-            <el-tab-pane>
+          <el-tabs v-model="active" @tab-click="tabClick">
+            <el-tab-pane label="全部视频" name="1" />
+            <el-tab-pane label="审核中" name="2" />
+            <el-tab-pane name="3">
               <span slot="label">
                 已发布<sup class="badge">1</sup>
               </span>
             </el-tab-pane>
-            <el-tab-pane label="未发布" />
+            <el-tab-pane label="未发布" name="4" />
           </el-tabs>
         </el-col>
         <el-col :span="8">
@@ -82,21 +82,36 @@ export default {
       value1: '',
       value2: '',
       options: [],
-      list: [
+      list: [],
+      list1: [
         { time: '2020-08-06 17:15:48', num: 12990756523, src: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg', title: '扫地机器人1C智能家用全自动扫拖一体机拖地吸尘器三合一', company: '杭州域加网络科技有限公司', status: 1 },
         { time: '2020-08-06 17:15:48', num: 12990756523, src: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg', title: '扫地机器人1C智能家用全自动扫拖一体机拖地吸尘器三合一', company: '杭州域加网络科技有限公司', status: 2 },
         { time: '2020-08-06 17:15:48', num: 12990756523, src: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg', title: '扫地机器人1C智能家用全自动扫拖一体机拖地吸尘器三合一', company: '杭州域加网络科技有限公司', status: 3 },
         { time: '2020-08-06 17:15:48', num: 12990756523, src: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg', title: '扫地机器人1C智能家用全自动扫拖一体机拖地吸尘器三合一', company: '杭州域加网络科技有限公司', status: 4 }
+      ],
+      list2: [
+        { time: '2020-08-06 17:15:48', num: 12990756523, src: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg', title: '扫地机器人1C智能家用全自动扫拖一体机拖地吸尘器三合一', company: '杭州域加网络科技有限公司', status: 1 }
       ],
       statusMap: {
         1: '审核中',
         2: '已发布',
         3: '审核失败',
         4: '已下架'
-      }
+      },
+      active: '1'
     }
   },
+  created() {
+    this.list = this.list1
+  },
   methods: {
+    tabClick() {
+      if (this.active === '1') {
+        this.list = this.list1
+      } else {
+        this.list = this.list2
+      }
+    },
     handleClick(text) {
       this.$confirm(`确认${text}？`, '提示', {
         confirmButtonText: '确定',
