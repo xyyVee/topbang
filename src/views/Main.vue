@@ -85,8 +85,8 @@
   .search-group {
     position: relative;
     min-width: 1200px;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+    overflow-x: hidden;
     background: url(../assets/pics/home1.jpg) no-repeat;
     background-position-x: center;
     background-position-y: top;
@@ -96,7 +96,8 @@
     position: absolute;
     width: 710px;
     top: 540px;
-    left: 250px;
+    left: 50%;
+    transform: translateX(-50%);
     .input {
       width: 600px;
       height: 51px;
@@ -127,7 +128,8 @@
   .hot-words {
     position: absolute;
     top: 601px;
-    left: 156px;
+    left: 50%;
+    transform: translateX(-50%);
     color: #666666;
     font-size: 20px;
     z-index: 2;
