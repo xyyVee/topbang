@@ -27,12 +27,12 @@
       </div>
     </el-card>
     <el-row>
-      <el-col :span="16">
+      <el-col :span="17">
         <el-card class="card card-4">
           <img class="img" src="@/assets/pics/seller-b1.png" alt="">
         </el-card>
       </el-col>
-      <el-col :span="8">
+      <el-col :span="7">
         <!-- 我的消息 -->
         <el-card class="card card-3">
           <div slot="header" class="clearfix">
@@ -348,7 +348,7 @@ export default {
   }
 }
 .card-3 {
-  width: 250px;
+  width: 95%;
   float: right;
 }
 .card {
