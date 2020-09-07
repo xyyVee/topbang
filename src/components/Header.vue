@@ -81,14 +81,14 @@
     overflow-x: auto;
     .header {
         position: relative;
-        width: 988px;
+        width: 1200px;
         height: 54px;
         margin: 0 auto;
     }
     .logo {
         position: absolute;
-        width: 65px;
-        height: 65px;
+        width: 58px;
+        height: 58px;
         left: 0;
         top: 0;
     }
