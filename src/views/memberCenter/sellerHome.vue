@@ -314,6 +314,7 @@ export default {
 }
 .card-4 {
   padding: 0;
+  height: 190px;
   img {
     width: 100%;
     display: block;
@@ -350,6 +351,7 @@ export default {
 .card-3 {
   width: 95%;
   float: right;
+  height: 190px;
 }
 .card {
   .info {
