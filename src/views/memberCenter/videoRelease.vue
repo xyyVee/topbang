@@ -38,10 +38,11 @@
         </el-form-item>
 
         <el-form-item label="所属行业">
-          <el-select v-model="input1" placeholder="点击选择">
+          <el-cascader v-model="input1" :options="options1" @change="handleCascader" />
+          <!-- <el-select v-model="input1" placeholder="点击选择">
             <el-option label="行业一" value="1" />
             <el-option label="行业二" value="2" />
-          </el-select>
+          </el-select> -->
         </el-form-item>
         <el-form-item label="可应用行业（可选三个）">
           <el-select v-model="input2" placeholder="点击选择" class="el-select">
@@ -72,11 +73,7 @@
             default-first-option
             placeholder="每个标签之间用；隔开"
           >
-            <el-option-group
-              v-for="group in options"
-              :key="group.label"
-              :label="group.label"
-            >
+            <el-option-group v-for="group in options" :key="group.label" :label="group.label">
               <el-option
                 v-for="item in group.options"
                 :key="item.value"
@@ -183,6 +180,44 @@ export default {
           label: '家电'
         }]
       }],
+      options1: [{
+        value: 'zhinan',
+        label: '指南',
+        children: [{
+          value: 'shejiyuanze',
+          label: '设计原则',
+          children: [{
+            value: 'yizhi',
+            label: '一致'
+          }, {
+            value: 'fankui',
+            label: '反馈'
+          }]
+        }, {
+          value: 'daohang',
+          label: '导航',
+          children: [{
+            value: 'cexiangdaohang',
+            label: '侧向导航'
+          }, {
+            value: 'dingbudaohang',
+            label: '顶部导航'
+          }]
+        }]
+      }, {
+        value: 'ziyuan',
+        label: '资源',
+        children: [{
+          value: 'axure',
+          label: 'Axure Components'
+        }, {
+          value: 'sketch',
+          label: 'Sketch Templates'
+        }, {
+          value: 'jiaohu',
+          label: '组件交互文档'
+        }]
+      }],
       value: []
     }
   },
@@ -203,6 +238,10 @@ export default {
     },
     handleChange(file, fileList) {
       this.fileList = fileList
+    },
+
+    handleCascader(value) {
+      console.log(value)
     }
   }
 }
