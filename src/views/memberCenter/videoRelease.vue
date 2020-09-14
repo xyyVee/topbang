@@ -63,6 +63,30 @@
         </el-form-item>
 
         <el-form-item label="标签">
+
+          <el-select
+            v-model="value"
+            multiple
+            filterable
+            allow-create
+            default-first-option
+            placeholder="每个标签之间用；隔开"
+          >
+            <el-option-group
+              v-for="group in options"
+              :key="group.label"
+              :label="group.label"
+            >
+              <el-option
+                v-for="item in group.options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              />
+            </el-option-group>
+          </el-select>
+        </el-form-item>
+        <!-- <el-form-item label="标签">
           <div class="inputTags">
             <span v-if="!inputTags.length" class="placeholder">每个标签之间用；隔开</span>
 
@@ -90,7 +114,7 @@
           >
             {{ tag }}
           </el-tag>
-        </el-form-item>
+        </el-form-item> -->
 
         <el-form-item label="价格">
           <el-input placeholder="0.00" class="price">
@@ -145,7 +169,21 @@ export default {
       input4: '',
       fileList: [],
       imageUrl: '',
-      disabled: false
+      disabled: false,
+      options: [{
+        label: '推荐标签',
+        options: [{
+          value: '1',
+          label: '人工智能'
+        }, {
+          value: '2',
+          label: '扫地机器人'
+        }, {
+          value: '3',
+          label: '家电'
+        }]
+      }],
+      value: []
     }
   },
   methods: {
@@ -233,7 +271,7 @@ export default {
   transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
   width: 100%;
   margin: 0 0 10px 0;
-  .placeholder{
+  .placeholder {
     color: #999;
   }
 }
