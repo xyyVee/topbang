@@ -43,8 +43,7 @@
         methods: {
             handleScroll() {
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-                if (scrollTop > this.showSearch) {
-                    console.log('sticky')
+                if (this.showSearch && scrollTop > this.showSearch) {
                     this.showSearchFlag = true
                 } else {
                     this.showSearchFlag = false
